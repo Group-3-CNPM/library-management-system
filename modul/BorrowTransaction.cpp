@@ -45,6 +45,6 @@ public:
     }
 };
 //Viết lần lượt các câu lệnh sau vào terminal để lưu lại trên github
-//1 Viết git add . để lưu thay đổi
+//1 Viết git add modul để lưu thay đổi
 //2 git commit -m "" viết vào "" nội dung thay đổi như "sửa hàm chức năng trong class User"
 //3 git push origin main để lưu trên github
