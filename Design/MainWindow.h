@@ -31,13 +31,13 @@ private slots:
     void handleForgotPassword();
     void handleSignUp();
     void handleLogout();
+    void onReturnAndFineClicked();
+    void onMarkFinePaidClicked();
+    void onCancelReservationClicked();
 
     void onSearchTextChanged(const QString& text);
     void onBorrowBookClicked();
     void onReserveBookClicked();
-    void onReturnAndFineClicked();
-    void onReturnAndFineClicked();
-    void onMarkFinePaidClicked();
 
 private:
     QStackedWidget* m_stackedWidget;
@@ -55,13 +55,13 @@ private:
     QTableWidget* m_bookTable;
     QPushButton* m_borrowBtn;
     QPushButton* m_reserveBtn;
+    QPushButton* m_returnFineBtn;
+    QPushButton* m_markPaidBtn;
+    QPushButton* m_cancelReserveBtn;
 
     // Tab 2: Circulation & Returns (Librarian, Admin)
     QTableWidget* m_borrowTable;
     QTableWidget* m_reservationTable;
-    QPushButton* m_returnFineBtn;
-    QPushButton* m_returnFineBtn;
-    QPushButton* m_markPaidBtn;
 
     // Tab 3: Reports & Administration (Admin)
     QLabel* m_statTotalBooks;

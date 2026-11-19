@@ -126,6 +126,30 @@ QWidget* MainWindow::createLoginScreen() {
     return container;
 }
 
+void MainWindow::onCancelReservationClicked() {
+    int row = m_reservationTable->currentRow();
+    if (row < 0) {
+        QMessageBox::information(this, "Select Reservation", "Please select a reservation request to cancel.");
+        return;
+    }
+
+    QString resId = m_reservationTable->item(row, 0)->text();
+    for (int i = 0; i < m_reservations.size(); ++i) {
+        if (m_reservations[i].reserveId == resId) {
+            if (m_currentUser.role == UserRole::Member &&
+                m_reservations[i].memberId != m_currentUser.memberId) {
+                QMessageBox::warning(this, "Access Denied", "You can only cancel your own reservations.");
+                return;
+            }
+            m_reservations.removeAt(i);
+            refreshReservationTable();
+            QMessageBox::information(this, "Cancelled",
+                                     QString("Reservation %1 has been cancelled.").arg(resId));
+            return;
+        }
+    }
+}
+
 void MainWindow::handleLogin() {
     QString uname = m_usernameEdit->text().trimmed();
     QString pwd = m_passwordEdit->text();
@@ -252,14 +276,22 @@ QWidget* MainWindow::createDashboardScreen() {
     m_borrowTable->setSelectionMode(QAbstractItemView::SingleSelection);
     m_borrowTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
+    auto* resHeaderLayout = new QHBoxLayout();
+    resHeaderLayout->addWidget(new QLabel("<b>Pending Book Reservations</b>"));
+    resHeaderLayout->addStretch();
+    m_cancelReserveBtn = new QPushButton("Cancel Reservation");
+    resHeaderLayout->addWidget(m_cancelReserveBtn);
+
     m_reservationTable = new QTableWidget(0, 6);
     m_reservationTable->setHorizontalHeaderLabels({"Reserve ID", "Member ID", "ISBN", "Book Title", "Reserve Date", "Notes"});
     m_reservationTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_reservationTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_reservationTable->setSelectionMode(QAbstractItemView::SingleSelection);
     m_reservationTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     circLayout->addLayout(circActionLayout);
     circLayout->addWidget(m_borrowTable);
-    circLayout->addWidget(new QLabel("<b>Pending Book Reservations</b>"));
+    circLayout->addLayout(resHeaderLayout);
     circLayout->addWidget(m_reservationTable);
 
     // ------------------------------------------------------------------------
@@ -304,16 +336,26 @@ QWidget* MainWindow::createDashboardScreen() {
     connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
     connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
     connect(m_markPaidBtn, &QPushButton::clicked, this, &MainWindow::onMarkFinePaidClicked);
+    connect(m_cancelReserveBtn, &QPushButton::clicked, this, &MainWindow::onCancelReservationClicked);
     return dashboard;
 }
 
 void MainWindow::applyRolePermissions() {
     bool isMember = (m_currentUser.role == UserRole::Member);
-    bool isLibrarian = (m_currentUser.role == UserRole::Librarian);
+    bool isAdmin  = (m_currentUser.role == UserRole::Administrator);
 
+    // Tab 1: Tất cả vai trò
     m_dashboardTabs->setTabEnabled(0, true);
-    m_dashboardTabs->setTabEnabled(1, !isMember);
-    m_dashboardTabs->setTabEnabled(2, !isMember && !isLibrarian);
+    // Tab 2: Member xem lịch sử mượn, yêu cầu trả sách, hủy đặt trước; Librarian/Admin duyệt trả & thu phạt
+    m_dashboardTabs->setTabEnabled(1, true);
+    // Tab 3: Librarian & Admin xem báo cáo (FR10, UC-15); chỉ Admin quản lý tài khoản (UC-18)
+    m_dashboardTabs->setTabEnabled(2, !isMember);
+    // Phân quyền nút thao tác bên trong Tab 2
+    m_markPaidBtn->setVisible(!isMember);
+    m_returnFineBtn->setText(isMember ? "Request Return / View Fine" : "Return Book & Calculate Fine");
+
+    // Chỉ Administrator mới thấy bảng quản trị tài khoản ở Tab 3
+    m_usersTable->setVisible(isAdmin);
     m_dashboardTabs->setCurrentIndex(0);
 }
 
@@ -339,8 +381,12 @@ void MainWindow::refreshBookTable(const QString& filter) {
 void MainWindow::refreshBorrowTable() {
     QLocale vn(QLocale::Vietnamese);
     m_borrowTable->setRowCount(0);
+    bool isMember = (m_currentUser.role == UserRole::Member);
 
     for (const auto& rec : m_borrows) {
+        if (isMember && rec.memberId != m_currentUser.memberId) {
+            continue;
+        }
         int row = m_borrowTable->rowCount();
         m_borrowTable->insertRow(row);
         m_borrowTable->setItem(row, 0, new QTableWidgetItem(rec.recordId));
@@ -354,7 +400,6 @@ void MainWindow::refreshBorrowTable() {
                          : (rec.dueDate < QDate::currentDate() ? "Overdue" : "Borrowed");
         m_borrowTable->setItem(row, 6, new QTableWidgetItem(status));
 
-        // Tính và hiển thị trạng thái phạt (5,000 VND/ngày)
         double accruedFine = rec.fineAmount;
         if (!rec.isReturned && rec.dueDate < QDate::currentDate()) {
             int overdueDays = rec.dueDate.daysTo(QDate::currentDate());
@@ -363,12 +408,10 @@ void MainWindow::refreshBorrowTable() {
 
         QString fineStatusText = "No Fine";
         if (accruedFine > 0.0) {
-            QString formatted = vn.toString(static_cast<qlonglong>(accruedFine)) + " VND";
-            if (rec.finePaid >= accruedFine) {
-                fineStatusText = QString("Paid (%1)").arg(formatted);
-            } else {
-                fineStatusText = QString("Unpaid (%1)").arg(formatted);
-            }
+            QString formatted = vn.toString(static_cast<qulonglong>(accruedFine)) + " VND";
+            fineStatusText = (rec.finePaid >= accruedFine)
+                                 ? QString("Paid (%1)").arg(formatted)
+                                 : QString("Unpaid (%1)").arg(formatted);
         }
         m_borrowTable->setItem(row, 7, new QTableWidgetItem(fineStatusText));
     }
@@ -376,7 +419,12 @@ void MainWindow::refreshBorrowTable() {
 
 void MainWindow::refreshReservationTable() {
     m_reservationTable->setRowCount(0);
+    bool isMember = (m_currentUser.role == UserRole::Member);
+
     for (const auto& res : m_reservations) {
+        if (isMember && res.memberId != m_currentUser.memberId) {
+            continue;
+        }
         int row = m_reservationTable->rowCount();
         m_reservationTable->insertRow(row);
         m_reservationTable->setItem(row, 0, new QTableWidgetItem(res.reserveId));
