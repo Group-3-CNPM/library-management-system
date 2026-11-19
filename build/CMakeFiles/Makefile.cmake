@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "MinGW Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/CMakeLists.txt"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/CMakeLists.txt"
   "CMakeFiles/4.5.0/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.5.0/CMakeRCCompiler.cmake"
   "CMakeFiles/4.5.0/CMakeSystem.cmake"

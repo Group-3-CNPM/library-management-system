@@ -16,7 +16,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/4.5.0/CMakeSystem.cmake"
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/4.5.0/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -310,7 +310,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/4.5.0/CMakeCXXCompiler.cmake"
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/4.5.0/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -384,7 +384,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/4.5.0/CMakeRCCompiler.cmake"
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/4.5.0/CMakeRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -468,7 +468,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "build/CMakeFiles/4.5.0/CMakeCXXCompiler.cmake"
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/4.5.0/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -1713,7 +1713,7 @@
 	"paths" : 
 	{
 		"build" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
-		"source" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp"
+		"source" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design"
 	},
 	"version" : 
 	{

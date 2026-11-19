@@ -55,7 +55,7 @@ RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp"
+CMAKE_SOURCE_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design"
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build"
@@ -98,48 +98,48 @@ CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilatio
 
 CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: CMakeFiles/LibraryManagementApp.dir/flags.make
 CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: CMakeFiles/LibraryManagementApp.dir/includes_CXX.rsp
-CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/main.cpp
+CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/main.cpp
 CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: CMakeFiles/LibraryManagementApp.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LibraryManagementApp.dir/main.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LibraryManagementApp.dir/main.cpp.obj -MF CMakeFiles\LibraryManagementApp.dir\main.cpp.obj.d -o CMakeFiles\LibraryManagementApp.dir\main.cpp.obj -c "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\main.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LibraryManagementApp.dir/main.cpp.obj -MF CMakeFiles\LibraryManagementApp.dir\main.cpp.obj.d -o CMakeFiles\LibraryManagementApp.dir\main.cpp.obj -c "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\main.cpp"
 
 CMakeFiles/LibraryManagementApp.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LibraryManagementApp.dir/main.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\main.cpp" > CMakeFiles\LibraryManagementApp.dir\main.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\main.cpp" > CMakeFiles\LibraryManagementApp.dir\main.cpp.i
 
 CMakeFiles/LibraryManagementApp.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LibraryManagementApp.dir/main.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\main.cpp" -o CMakeFiles\LibraryManagementApp.dir\main.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\main.cpp" -o CMakeFiles\LibraryManagementApp.dir\main.cpp.s
 
 CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: CMakeFiles/LibraryManagementApp.dir/flags.make
 CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: CMakeFiles/LibraryManagementApp.dir/includes_CXX.rsp
-CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Dialogs.cpp
+CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/Dialogs.cpp
 CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: CMakeFiles/LibraryManagementApp.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj -MF CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.obj.d -o CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.obj -c "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Dialogs.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj -MF CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.obj.d -o CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.obj -c "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\Dialogs.cpp"
 
 CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Dialogs.cpp" > CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\Dialogs.cpp" > CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.i
 
 CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Dialogs.cpp" -o CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\Dialogs.cpp" -o CMakeFiles\LibraryManagementApp.dir\Dialogs.cpp.s
 
 CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: CMakeFiles/LibraryManagementApp.dir/flags.make
 CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: CMakeFiles/LibraryManagementApp.dir/includes_CXX.rsp
-CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/MainWindow.cpp
+CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/MainWindow.cpp
 CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: CMakeFiles/LibraryManagementApp.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj -MF CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.obj.d -o CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.obj -c "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\MainWindow.cpp"
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj -MF CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.obj.d -o CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.obj -c "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\MainWindow.cpp"
 
 CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.i"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\MainWindow.cpp" > CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.i
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\MainWindow.cpp" > CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.i
 
 CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.s"
-	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\MainWindow.cpp" -o CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.s
+	C:\msys64\ucrt64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\MainWindow.cpp" -o CMakeFiles\LibraryManagementApp.dir\MainWindow.cpp.s
 
 # Object files for target LibraryManagementApp
 LibraryManagementApp_OBJECTS = \
@@ -175,6 +175,6 @@ CMakeFiles/LibraryManagementApp.dir/clean:
 .PHONY : CMakeFiles/LibraryManagementApp.dir/clean
 
 CMakeFiles/LibraryManagementApp.dir/depend: LibraryManagementApp_autogen/timestamp
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles\LibraryManagementApp.dir\DependInfo.cmake" "--color=$(COLOR)" LibraryManagementApp
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles\LibraryManagementApp.dir\DependInfo.cmake" "--color=$(COLOR)" LibraryManagementApp
 .PHONY : CMakeFiles/LibraryManagementApp.dir/depend
 

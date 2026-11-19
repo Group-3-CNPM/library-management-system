@@ -369,11 +369,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
+			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "LibraryManagementApp::@6890427a1f51a3e7e1df",
@@ -459,11 +459,11 @@
 			"id" : "Qt6::uic::@6890427a1f51a3e7e1df"
 		},
 		{
-			"backtrace" : 0,
-			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
+			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"paths" : 
@@ -518,7 +518,7 @@
 			],
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/LibraryManagementApp_autogen/mocs_compilation.cpp",
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/mocs_compilation.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -584,7 +584,7 @@
 			[
 				35
 			],
-			"path" : "build/LibraryManagementApp.exe.manifest",
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp.exe.manifest",
 			"sourceGroupIndex" : 2
 		},
 		{
@@ -594,7 +594,7 @@
 				0
 			],
 			"isGenerated" : true,
-			"path" : "build/LibraryManagementApp_autogen/timestamp",
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/timestamp",
 			"sourceGroupIndex" : 2
 		},
 		{
@@ -604,7 +604,7 @@
 				0
 			],
 			"isGenerated" : true,
-			"path" : "build/LibraryManagementApp_autogen/timestamp.rule",
+			"path" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

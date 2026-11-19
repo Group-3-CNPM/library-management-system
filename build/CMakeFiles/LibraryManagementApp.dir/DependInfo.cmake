@@ -9,10 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "LibraryManagementApp_autogen/timestamp" "custom" "LibraryManagementApp_autogen/deps"
-  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Dialogs.cpp" "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/Dialogs.cpp" "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj.d"
   "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/mocs_compilation.cpp" "CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj.d"
-  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/MainWindow.cpp" "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj.d"
-  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/main.cpp" "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.cpp" "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/main.cpp" "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

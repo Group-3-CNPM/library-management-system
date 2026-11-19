@@ -3,11 +3,11 @@
 	"BUILD_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen",
 	"CMAKE_BINARY_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
 	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design",
 	"CMAKE_EXECUTABLE" : "C:/msys64/ucrt64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/CMakeLists.txt",
+		"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/CMakeLists.txt",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeDetermineSystem.cmake",
 		"C:/msys64/ucrt64/share/cmake/Modules/CMakeSystem.cmake.in",
 		"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/4.5.0/CMakeSystem.cmake",
@@ -398,7 +398,7 @@
 		"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
 		"C:/msys64/ucrt64/lib/cmake/Qt6/windows/app.exe.manifest.in"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp",
+	"CMAKE_SOURCE_DIR" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design",
 	"CROSS_CONFIG" : false,
 	"CXX_MODULE_UNITS" : [],
 	"DEP_FILE" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/deps",
@@ -406,19 +406,19 @@
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Dialogs.h",
+			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/Dialogs.h",
 			"MU",
 			"EWIEGA46WW/moc_Dialogs.cpp",
 			null
 		],
 		[
-			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/LibraryModels.h",
+			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/LibraryModels.h",
 			"MU",
 			"EWIEGA46WW/moc_LibraryModels.cpp",
 			null
 		],
 		[
-			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/MainWindow.h",
+			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.h",
 			"MU",
 			"EWIEGA46WW/moc_MainWindow.cpp",
 			null
@@ -495,17 +495,17 @@
 	"SOURCES" : 
 	[
 		[
-			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Dialogs.cpp",
+			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/Dialogs.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/MainWindow.cpp",
+			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/main.cpp",
+			"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/main.cpp",
 			"MU",
 			null
 		]

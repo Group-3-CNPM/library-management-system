@@ -551,7 +551,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp"
+			"value" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1635,7 +1635,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp"
+			"value" : "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design"
 		},
 		{
 			"name" : "QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH",

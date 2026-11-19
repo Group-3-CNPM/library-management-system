@@ -176,11 +176,8 @@ ReturnFineDialog::ReturnFineDialog(const BorrowRecord& record, QWidget* parent)
     m_overdueDaysLabel = new QLabel(this);
     m_totalFineLabel = new QLabel(this);
 
-    QLocale vnLocale(QLocale::Vietnamese);
-    QString formattedRate = vnLocale.toString(static_cast<qlonglong>(FINE_PER_DAY)) + " VND / overdue day";
-
     fineForm->addRow("Actual Return Date:", m_returnDateEdit);
-    fineForm->addRow("Fine Rate:", new QLabel(formattedRate));
+    fineForm->addRow("Fine Rate:", new QLabel("5,000 VND / overdue day"));
     fineForm->addRow("Overdue Days:", m_overdueDaysLabel);
     fineForm->addRow("Total Fine:", m_totalFineLabel);
 

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/LE THANH TAI/Downloads/LibraryManagementApp
+# Install script for directory: C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
