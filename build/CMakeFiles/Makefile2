@@ -47,10 +47,10 @@ CMAKE_USES_TERMINAL_PREFIX =
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
+CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
+RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -86,8 +86,8 @@ clean: CMakeFiles/LibraryManagementApp_autogen.dir/clean
 # Target rules for target CMakeFiles/LibraryManagementApp.dir
 
 # All Build rule for target.
-CMakeFiles/LibraryManagementApp.dir/all: CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all
 CMakeFiles/LibraryManagementApp.dir/all: CMakeFiles/LibraryManagementApp_autogen.dir/all
+CMakeFiles/LibraryManagementApp.dir/all: CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles" --progress-num=1,2,3,4,5,6 "Built target LibraryManagementApp"

@@ -15,12 +15,12 @@
 		],
 		"files" : 
 		[
-			"C:/msys64/ucrt64/share/cmake/Modules/FindVulkan.cmake",
+			"C:/Program Files/CMake/share/cmake-4.5/Modules/FindVulkan.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -128,7 +128,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 797,
+				"line" : 790,
 				"parent" : 18
 			}
 		]
@@ -138,7 +138,7 @@
 		"major" : 2,
 		"minor" : 12
 	},
-	"id" : "Vulkan::Headers::@6890427a1f51a3e7e1df",
+	"id" : "Vulkan::Vulkan::@6890427a1f51a3e7e1df",
 	"imported" : true,
 	"interfaceIncludes" : 
 	[
@@ -148,12 +148,12 @@
 		}
 	],
 	"local" : true,
-	"name" : "Vulkan::Headers",
+	"name" : "Vulkan::Vulkan",
 	"paths" : 
 	{
 		"build" : ".",
 		"source" : "."
 	},
 	"sources" : [],
-	"type" : "INTERFACE_LIBRARY"
+	"type" : "UNKNOWN_LIBRARY"
 }

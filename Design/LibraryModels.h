@@ -44,6 +44,8 @@ struct BorrowRecord {
     QDate dueDate;
     bool isReturned = false;
     double finePaid = 0.0;
+    double fineAmount = 0.0;
+    QDate returnDate;
 };
 
 struct ReservationRecord {

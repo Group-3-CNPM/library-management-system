@@ -236,12 +236,17 @@ QWidget* MainWindow::createDashboardScreen() {
     auto* circActionLayout = new QHBoxLayout();
     circActionLayout->addWidget(new QLabel("<b>Active Borrow Transactions</b>"));
     circActionLayout->addStretch();
+    m_markPaidBtn = new QPushButton("Mark Fine Paid");
     m_returnFineBtn = new QPushButton("Return Book & Calculate Fine");
     m_returnFineBtn->setObjectName("successButton");
+    circActionLayout->addWidget(m_markPaidBtn);
     circActionLayout->addWidget(m_returnFineBtn);
 
-    m_borrowTable = new QTableWidget(0, 7);
-    m_borrowTable->setHorizontalHeaderLabels({"Record ID", "Member ID", "ISBN", "Book Title", "Borrow Date", "Due Date", "Status"});
+    m_borrowTable = new QTableWidget(0, 8);
+    m_borrowTable->setHorizontalHeaderLabels({
+        "Record ID", "Member ID", "ISBN", "Book Title",
+        "Borrow Date", "Due Date", "Status", "Fine Status"
+    });
     m_borrowTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     m_borrowTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_borrowTable->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -297,7 +302,8 @@ QWidget* MainWindow::createDashboardScreen() {
     connect(m_borrowBtn, &QPushButton::clicked, this, &MainWindow::onBorrowBookClicked);
     connect(m_reserveBtn, &QPushButton::clicked, this, &MainWindow::onReserveBookClicked);
     connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
-
+    connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
+    connect(m_markPaidBtn, &QPushButton::clicked, this, &MainWindow::onMarkFinePaidClicked);
     return dashboard;
 }
 
@@ -331,7 +337,9 @@ void MainWindow::refreshBookTable(const QString& filter) {
 }
 
 void MainWindow::refreshBorrowTable() {
+    QLocale vn(QLocale::Vietnamese);
     m_borrowTable->setRowCount(0);
+
     for (const auto& rec : m_borrows) {
         int row = m_borrowTable->rowCount();
         m_borrowTable->insertRow(row);
@@ -345,6 +353,24 @@ void MainWindow::refreshBorrowTable() {
         QString status = rec.isReturned ? "Returned"
                          : (rec.dueDate < QDate::currentDate() ? "Overdue" : "Borrowed");
         m_borrowTable->setItem(row, 6, new QTableWidgetItem(status));
+
+        // Tính và hiển thị trạng thái phạt (5,000 VND/ngày)
+        double accruedFine = rec.fineAmount;
+        if (!rec.isReturned && rec.dueDate < QDate::currentDate()) {
+            int overdueDays = rec.dueDate.daysTo(QDate::currentDate());
+            accruedFine = overdueDays * 5000.0;
+        }
+
+        QString fineStatusText = "No Fine";
+        if (accruedFine > 0.0) {
+            QString formatted = vn.toString(static_cast<qlonglong>(accruedFine)) + " VND";
+            if (rec.finePaid >= accruedFine) {
+                fineStatusText = QString("Paid (%1)").arg(formatted);
+            } else {
+                fineStatusText = QString("Unpaid (%1)").arg(formatted);
+            }
+        }
+        m_borrowTable->setItem(row, 7, new QTableWidgetItem(fineStatusText));
     }
 }
 
@@ -476,21 +502,84 @@ void MainWindow::onReturnAndFineClicked() {
             }
             ReturnFineDialog dlg(rec, this);
             if (dlg.exec() == QDialog::Accepted) {
+                double calculatedFine = dlg.getCalculatedFine();
                 rec.isReturned = true;
-                rec.finePaid = dlg.getCalculatedFine();
+                rec.returnDate = dlg.getReturnDate();
+                rec.fineAmount = calculatedFine;
 
-                // Cộng lại số lượng sách khả dụng
+                // Cộng lại số lượng sách khả dụng (FR5)
                 for (auto& book : m_books) {
                     if (book.isbn == rec.isbn) {
                         book.availableCopies++;
                         break;
                     }
                 }
+
+                // Kiểm tra hàng đợi đặt trước đầu tiên theo FIFO (FR6, FR9)
+                QString notifiedMember;
+                for (int i = 0; i < m_reservations.size(); ++i) {
+                    if (m_reservations[i].isbn == rec.isbn) {
+                        notifiedMember = m_reservations[i].memberId;
+                        m_reservations.removeAt(i);
+                        break;
+                    }
+                }
+
                 refreshBookTable(m_searchEdit->text());
                 refreshBorrowTable();
+                refreshReservationTable();
                 refreshReportsTab();
-                QMessageBox::information(this, "Returned", "Book return confirmed and fine settled.");
+
+                QLocale vn(QLocale::Vietnamese);
+                QString msg = "Book return confirmed.";
+                if (calculatedFine > 0.0) {
+                    QString formattedFine = vn.toString(static_cast<qulonglong>(calculatedFine));
+                    msg += QString("\nAccrued fine: %1 VND (Status: Unpaid - click 'Mark Fine Paid' once collected).")
+                            .arg(formattedFine);
+                }
+                if (!notifiedMember.isEmpty()) {
+                    msg += QString("\nNotification sent to %1: Reserved book is now available for pickup.")
+                            .arg(notifiedMember);
+                }
+                QMessageBox::information(this, "Returned", msg);
             }
+            return;
+        }
+    }
+}
+
+void MainWindow::onMarkFinePaidClicked() {
+    int row = m_borrowTable->currentRow();
+    if (row < 0) {
+        QMessageBox::information(this, "Select Transaction", "Please select a transaction to record fine payment.");
+        return;
+    }
+
+    QString recId = m_borrowTable->item(row, 0)->text();
+    for (auto& rec : m_borrows) {
+        if (rec.recordId == recId) {
+            if (!rec.isReturned) {
+                QMessageBox::warning(this, "Book Not Returned",
+                                     "Please process the book return first using 'Return Book & Calculate Fine'.");
+                return;
+            }
+            if (rec.fineAmount <= 0.0) {
+                QMessageBox::information(this, "No Fine", "This transaction has no overdue fine.");
+                return;
+            }
+            if (rec.finePaid >= rec.fineAmount) {
+                QMessageBox::information(this, "Already Paid", "This fine has already been marked as Paid.");
+                return;
+            }
+
+            rec.finePaid = rec.fineAmount;
+            refreshBorrowTable();
+            refreshReportsTab();
+
+            QLocale vn(QLocale::Vietnamese);
+            QMessageBox::information(this, "Fine Payment Recorded",
+                                     QString("Collected %1 VND for %2. Status updated to Paid.")
+                                         .arg(vn.toString(static_cast<qlonglong>(rec.finePaid)), rec.recordId));
             return;
         }
     }

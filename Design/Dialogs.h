@@ -57,6 +57,7 @@ public:
 
     double getCalculatedFine() const { return m_totalFine; }
     int getOverdueDays() const { return m_overdueDays; }
+    QDate getReturnDate() const { return m_returnDateEdit->date(); }
 
 private slots:
     void recalculateFine();

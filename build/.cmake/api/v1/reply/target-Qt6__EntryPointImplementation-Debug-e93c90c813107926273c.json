@@ -23,7 +23,7 @@
 		[
 			"C:/msys64/ucrt64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake",
-			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",

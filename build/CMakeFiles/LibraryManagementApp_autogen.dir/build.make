@@ -46,10 +46,10 @@ CMAKE_USES_TERMINAL_PREFIX =
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = C:\msys64\ucrt64\bin\cmake.exe
+CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
+RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -74,8 +74,8 @@ LibraryManagementApp_autogen/timestamp: C:/msys64/ucrt64/share/qt6/bin/moc.exe
 LibraryManagementApp_autogen/timestamp: C:/msys64/ucrt64/share/qt6/bin/uic.exe
 LibraryManagementApp_autogen/timestamp: CMakeFiles/LibraryManagementApp_autogen.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target LibraryManagementApp"
-	C:\msys64\ucrt64\bin\cmake.exe -E cmake_autogen "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/LibraryManagementApp_autogen.dir/AutogenInfo.json" Debug
-	C:\msys64\ucrt64\bin\cmake.exe -E touch "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/timestamp"
+	"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/CMakeFiles/LibraryManagementApp_autogen.dir/AutogenInfo.json" Debug
+	"C:\Program Files\CMake\bin\cmake.exe" -E touch "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/timestamp"
 
 CMakeFiles/LibraryManagementApp_autogen.dir/codegen:
 .PHONY : CMakeFiles/LibraryManagementApp_autogen.dir/codegen

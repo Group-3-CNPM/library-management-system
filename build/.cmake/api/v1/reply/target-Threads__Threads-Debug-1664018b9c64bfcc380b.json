@@ -14,8 +14,8 @@
 		],
 		"files" : 
 		[
-			"C:/msys64/ucrt64/share/cmake/Modules/FindThreads.cmake",
-			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Program Files/CMake/share/cmake-4.5/Modules/FindThreads.cmake",
+			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/Qt6Dependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/Qt6Config.cmake",
