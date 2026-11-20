@@ -69,8 +69,8 @@ CMAKE_BINARY_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\build"
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	$(CMAKE_USES_TERMINAL_PREFIX)"C:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
+	C:\msys64\ucrt64\bin\cmake.exe -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -164,6 +164,30 @@ LibraryManagementApp_autogen/fast:
 test_prep/all: cmake_check_build_system
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_prep/all
 .PHONY : test_prep/all
+
+DatabaseManager.obj: DatabaseManager.cpp.obj
+.PHONY : DatabaseManager.obj
+
+# target to build an object file
+DatabaseManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj
+.PHONY : DatabaseManager.cpp.obj
+
+DatabaseManager.i: DatabaseManager.cpp.i
+.PHONY : DatabaseManager.i
+
+# target to preprocess a source file
+DatabaseManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.i
+.PHONY : DatabaseManager.cpp.i
+
+DatabaseManager.s: DatabaseManager.cpp.s
+.PHONY : DatabaseManager.s
+
+# target to generate assembly for a file
+DatabaseManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.s
+.PHONY : DatabaseManager.cpp.s
 
 Dialogs.obj: Dialogs.cpp.obj
 .PHONY : Dialogs.obj
@@ -272,6 +296,9 @@ help:
 	@echo ... LibraryManagementApp_autogen
 	@echo ... LibraryManagementApp_autogen_timestamp_deps
 	@echo ... LibraryManagementApp
+	@echo ... DatabaseManager.obj
+	@echo ... DatabaseManager.i
+	@echo ... DatabaseManager.s
 	@echo ... Dialogs.obj
 	@echo ... Dialogs.i
 	@echo ... Dialogs.s

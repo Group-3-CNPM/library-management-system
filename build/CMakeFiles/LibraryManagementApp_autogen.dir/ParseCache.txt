@@ -2,6 +2,7 @@
 C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/Dialogs.cpp
 C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.h
  mmc:Q_OBJECT
+ mdp:C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/DatabaseManager.h
  mdp:C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/LibraryModels.h
  mdp:C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.h
  mdp:C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/moc_predefs.h

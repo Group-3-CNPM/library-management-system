@@ -68,5 +68,5 @@ int main(int argc, char* argv[]) {
 
     return app.exec();
 }
-//.\build\LibraryManagementApp.exe
+//set "PATH=C:\msys64\ucrt64\bin;%PATH%" && Design\build\LibraryManagementApp.exe
 // cmake --build build

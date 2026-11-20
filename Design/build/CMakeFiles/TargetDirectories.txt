@@ -1,0 +1,5 @@
+C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/CMakeFiles/LibraryManagementApp.dir
+C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/CMakeFiles/edit_cache.dir
+C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/CMakeFiles/rebuild_cache.dir
+C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir
+C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/CMakeFiles/LibraryManagementApp_autogen.dir

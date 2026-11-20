@@ -10,6 +10,7 @@
 #include <QTableWidget>
 #include <QComboBox>
 #include "LibraryModels.h"
+#include "DatabaseManager.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -17,6 +18,7 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
 
 private:
+    DatabaseManager m_dbManager;
     void initSampleData();
     QWidget* createLoginScreen();
     QWidget* createDashboardScreen();

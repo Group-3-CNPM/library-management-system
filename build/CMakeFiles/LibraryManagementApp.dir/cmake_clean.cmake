@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/LibraryManagementApp_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/LibraryManagementApp_autogen.dir/ParseCache.txt"
   "LibraryManagementApp_autogen"
+  "CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj"
+  "CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj.d"
   "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj"
   "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj.d"
   "CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj"

@@ -53,6 +53,20 @@ void MainWindow::initSampleData() {
         {"RES-001", "MEM-105", "978-0132350884", "Clean Code",
          QDate::currentDate().addDays(-1), "Need for final capstone project"}
     };
+    QString dbError;
+    if (m_dbManager.connectToDatabase("127.0.0.1", 3306, "library_management_db", "root", "1234", &dbError)) {
+        QVector<User> dbUsers;
+        QVector<Book> dbBooks;
+        QVector<BorrowRecord> dbBorrows;
+        QVector<ReservationRecord> dbReservations;
+
+        if (m_dbManager.loadAllData(dbUsers, dbBooks, dbBorrows, dbReservations, &dbError)) {
+            if (!dbUsers.isEmpty()) m_users = dbUsers;
+            if (!dbBooks.isEmpty()) m_books = dbBooks;
+            m_borrows = dbBorrows;
+            m_reservations = dbReservations;
+        }
+    }
 }
 
 // ============================================================================
@@ -144,6 +158,10 @@ void MainWindow::onCancelReservationClicked() {
                 return;
             }
             m_reservations.removeAt(i);
+
+            QString err;
+            m_dbManager.cancelReservation(resId, &err);
+
             refreshReservationTable();
             QMessageBox::information(this, "Cancelled",
                                      QString("Reservation %1 has been cancelled.").arg(resId));
@@ -195,6 +213,11 @@ void MainWindow::handleSignUp() {
 
     QString newMemId = QString("MEM-%1").arg(100 + m_users.size() + 1);
     m_users.append({newUser.trimmed(), newPass, UserRole::Member, newMemId});
+
+    User createdUser{newUser.trimmed(), newPass, UserRole::Member, newMemId};
+    QString err;
+    m_dbManager.insertUser(createdUser, &err);
+
     QMessageBox::information(this, "Registration Successful",
                              QString("Account created! Your Member ID is %1. You can now log in.").arg(newMemId));
 }
@@ -229,8 +252,12 @@ void MainWindow::onBorrowBookClicked() {
             if (dlg.exec() == QDialog::Accepted) {
                 book.availableCopies--;
                 QString recId = QString("BRW-%1").arg(m_borrows.size() + 1, 3, 10, QChar('0'));
-                m_borrows.append({recId, dlg.getMemberId(), book.isbn, book.title,
-                                  dlg.getBorrowDate(), dlg.getDueDate(), false, 0.0});
+                BorrowRecord newRec{recId, dlg.getMemberId(), book.isbn, book.title,
+                                    dlg.getBorrowDate(), dlg.getDueDate(), false, 0.0};
+                m_borrows.append(newRec);
+
+                QString err;
+                m_dbManager.insertBorrow(newRec, book.availableCopies, &err);
 
                 refreshBookTable(m_searchEdit->text());
                 refreshBorrowTable();
@@ -261,8 +288,13 @@ void MainWindow::onReserveBookClicked() {
             ReserveDialog dlg(book, defaultId, this);
             if (dlg.exec() == QDialog::Accepted) {
                 QString resId = QString("RES-%1").arg(m_reservations.size() + 1, 3, 10, QChar('0'));
-                m_reservations.append({resId, dlg.getMemberId(), book.isbn, book.title,
-                                       dlg.getReserveDate(), dlg.getNotes()});
+                ReservationRecord newRes{resId, dlg.getMemberId(), book.isbn, book.title,
+                                       dlg.getReserveDate(), dlg.getNotes()};
+                m_reservations.append(newRes);
+
+                QString err;
+                m_dbManager.insertReservation(newRes, &err);
+
                 refreshReservationTable();
                 QMessageBox::information(this, "Reserved", "Reservation request submitted successfully!");
             }
@@ -274,59 +306,51 @@ void MainWindow::onReserveBookClicked() {
 void MainWindow::onReturnAndFineClicked() {
     int row = m_borrowTable->currentRow();
     if (row < 0) {
-        QMessageBox::information(this, "Select Transaction", "Please select an active borrow record to return.");
+        QMessageBox::information(this, "Select Record", "Please select a borrow record first.");
         return;
     }
 
-    QString recId = m_borrowTable->item(row, 0)->text();
+    QString recordId = m_borrowTable->item(row, 0)->text();
     for (auto& rec : m_borrows) {
-        if (rec.recordId == recId) {
+        if (rec.recordId == recordId) {
             if (rec.isReturned) {
                 QMessageBox::information(this, "Already Returned", "This book has already been returned.");
                 return;
             }
-            ReturnFineDialog dlg(rec, this);
-            if (dlg.exec() == QDialog::Accepted) {
-                double calculatedFine = dlg.getCalculatedFine();
-                rec.isReturned = true;
-                rec.returnDate = dlg.getReturnDate();
-                rec.fineAmount = calculatedFine;
 
-                // Cộng lại số lượng sách khả dụng (FR5)
-                for (auto& book : m_books) {
-                    if (book.isbn == rec.isbn) {
-                        book.availableCopies++;
-                        break;
-                    }
-                }
+            QDate today = QDate::currentDate();
+            int overdueDays = (today > rec.dueDate) ? rec.dueDate.daysTo(today) : 0;
+            double fine = (overdueDays > 0) ? overdueDays * 5000.0 : 0.0;
 
-                // Kiểm tra hàng đợi đặt trước đầu tiên theo FIFO (FR6, FR9)
-                QString notifiedMember;
-                for (int i = 0; i < m_reservations.size(); ++i) {
-                    if (m_reservations[i].isbn == rec.isbn) {
-                        notifiedMember = m_reservations[i].memberId;
-                        m_reservations.removeAt(i);
-                        break;
-                    }
-                }
+            rec.isReturned = true;
+            rec.returnDate = today;
+            rec.fineAmount = fine;
 
-                refreshBookTable(m_searchEdit->text());
-                refreshBorrowTable();
-                refreshReservationTable();
-                refreshReportsTab();
+            int updatedAvailable = 0;
+            for (auto& book : m_books) {
+                if (book.isbn == rec.isbn) {
+                    book.availableCopies++;
+                    updatedAvailable = book.availableCopies;
+                    break;
+                }
+            }
 
-                QLocale vn(QLocale::Vietnamese);
-                QString msg = "Book return confirmed.";
-                if (calculatedFine > 0.0) {
-                    QString formattedFine = vn.toString(static_cast<qulonglong>(calculatedFine));
-                    msg += QString("\nAccrued fine: %1 VND (Status: Unpaid - click 'Mark Fine Paid' once collected).")
-                               .arg(formattedFine);
-                }
-                if (!notifiedMember.isEmpty()) {
-                    msg += QString("\nNotification sent to %1: Reserved book is now available for pickup.")
-                               .arg(notifiedMember);
-                }
-                QMessageBox::information(this, "Returned", msg);
+            QString err;
+            QString notifiedResId;
+            QString notifiedMemberId;
+            m_dbManager.recordBookReturn(rec, updatedAvailable, &notifiedResId, &notifiedMemberId, rec.bookTitle, &err);
+
+            refreshBookTable(m_searchEdit->text());
+            refreshBorrowTable();
+            refreshReportsTab();
+
+            if (fine > 0.0) {
+                QMessageBox::warning(this, "Overdue Fine",
+                                     QString("Returned %1 days late. Fine: %2 VND")
+                                         .arg(overdueDays)
+                                         .arg(fine, 0, 'f', 0));
+            } else {
+                QMessageBox::information(this, "Returned", "Book returned on time!");
             }
             return;
         }
@@ -336,35 +360,30 @@ void MainWindow::onReturnAndFineClicked() {
 void MainWindow::onMarkFinePaidClicked() {
     int row = m_borrowTable->currentRow();
     if (row < 0) {
-        QMessageBox::information(this, "Select Transaction", "Please select a transaction to record fine payment.");
+        QMessageBox::information(this, "Select Record", "Please select a borrow record first.");
         return;
     }
 
-    QString recId = m_borrowTable->item(row, 0)->text();
+    QString recordId = m_borrowTable->item(row, 0)->text();
     for (auto& rec : m_borrows) {
-        if (rec.recordId == recId) {
-            if (!rec.isReturned) {
-                QMessageBox::warning(this, "Book Not Returned",
-                                     "Please process the book return first using 'Return Book & Calculate Fine'.");
-                return;
-            }
+        if (rec.recordId == recordId) {
             if (rec.fineAmount <= 0.0) {
-                QMessageBox::information(this, "No Fine", "This transaction has no overdue fine.");
+                QMessageBox::information(this, "No Fine", "This record has no fine to pay.");
                 return;
             }
             if (rec.finePaid >= rec.fineAmount) {
-                QMessageBox::information(this, "Already Paid", "This fine has already been marked as Paid.");
+                QMessageBox::information(this, "Paid", "Fine has already been paid.");
                 return;
             }
 
             rec.finePaid = rec.fineAmount;
+
+            QString err;
+            m_dbManager.markFinePaid(rec.recordId, rec.finePaid, &err);
+
             refreshBorrowTable();
             refreshReportsTab();
-
-            QLocale vn(QLocale::Vietnamese);
-            QMessageBox::information(this, "Fine Payment Recorded",
-                                     QString("Collected %1 VND for %2. Status updated to Paid.")
-                                         .arg(vn.toString(static_cast<qulonglong>(rec.finePaid)), rec.recordId));
+            QMessageBox::information(this, "Success", "Fine marked as paid!");
             return;
         }
     }
@@ -903,7 +922,12 @@ void MainWindow::onAddUserClicked() {
     }
 
     QString codeId = QString("%1-%2").arg(prefix).arg(100 + m_users.size() + 1);
-    m_users.append({uname, pwd, role, codeId});
+    User newAccount{uname, pwd, role, codeId};
+    m_users.append(newAccount);
+
+    QString err;
+    m_dbManager.insertUser(newAccount, &err);
+
     refreshReportsTab();
     QMessageBox::information(this, "Account Added",
                              QString("Created account '%1' (%2) with ID %3.").arg(uname, chosenRole, codeId));
@@ -936,6 +960,9 @@ void MainWindow::onToggleUserRoleClicked() {
         }
         target.role = UserRole::Member;
     }
+
+    QString err;
+    m_dbManager.updateUserRole(target.username, target.role, &err);
 
     refreshReportsTab();
     QMessageBox::information(this, "Role Updated",
@@ -972,6 +999,9 @@ void MainWindow::onRemoveUserClicked() {
 
     QString removedName = target.username;
     m_users.removeAt(row);
+
+    QString err;
+    m_dbManager.removeUser(removedName, &err);
     refreshReportsTab();
     QMessageBox::information(this, "Account Removed",
                              QString("Account '%1' has been removed.").arg(removedName));

@@ -1,0 +1,28 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "" "LibraryManagementApp_autogen/timestamp" "custom" "LibraryManagementApp_autogen/deps"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/DatabaseManager.cpp" "CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/Dialogs.cpp" "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/LibraryManagementApp_autogen/mocs_compilation.cpp" "CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.cpp" "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj.d"
+  "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/main.cpp" "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj" "gcc" "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

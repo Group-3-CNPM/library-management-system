@@ -1,25 +1,31 @@
 [
 {
   "directory": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\LibraryManagementApp_autogen\\mocs_compilation.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\build\\LibraryManagementApp_autogen\\mocs_compilation.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\LibraryManagementApp_autogen\\mocs_compilation.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\build\\LibraryManagementApp_autogen\\mocs_compilation.cpp\"",
   "file": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build/LibraryManagementApp_autogen/mocs_compilation.cpp",
   "output": "CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj"
 },
 {
   "directory": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\main.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\main.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\main.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\main.cpp\"",
   "file": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/main.cpp",
   "output": "CMakeFiles/LibraryManagementApp.dir/main.cpp.obj"
 },
 {
   "directory": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\Dialogs.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\Dialogs.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\DatabaseManager.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\DatabaseManager.cpp\"",
+  "file": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/DatabaseManager.cpp",
+  "output": "CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj"
+},
+{
+  "directory": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\Dialogs.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\Dialogs.cpp\"",
   "file": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/Dialogs.cpp",
   "output": "CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj"
 },
 {
   "directory": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/build",
-  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\MainWindow.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\MainWindow.cpp\"",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 @CMakeFiles\\LibraryManagementApp.dir\\includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\LibraryManagementApp.dir\\MainWindow.cpp.obj -c \"C:\\Users\\LE THANH TAI\\Downloads\\LibraryManagementApp\\Design\\MainWindow.cpp\"",
   "file": "C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/MainWindow.cpp",
   "output": "CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj"
 }

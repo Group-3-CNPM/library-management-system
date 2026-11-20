@@ -9,12 +9,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
 
 set(PROJECT_SOURCES
     main.cpp
     LibraryModels.h
+    DatabaseManager.h
+    DatabaseManager.cpp
     Dialogs.h
     Dialogs.cpp
     MainWindow.h
@@ -27,7 +29,10 @@ else()
     add_executable(LibraryManagementApp ${PROJECT_SOURCES})
 endif()
 
-target_link_libraries(LibraryManagementApp PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(LibraryManagementApp PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Sql
+)
 
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(LibraryManagementApp)
