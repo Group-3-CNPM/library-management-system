@@ -8,6 +8,8 @@
 #include <QMessageBox>
 #include <QInputDialog>
 #include <QLocale>
+#include <QFileDialog>
+#include <QTextStream>
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     setWindowTitle("Library Management System - Qt Widgets");
@@ -203,271 +205,6 @@ void MainWindow::handleLogout() {
     m_stackedWidget->setCurrentIndex(0);
 }
 
-// ============================================================================
-// 2. DASHBOARD / MAIN WINDOW (PHÂN QUYỀN MEMBER / LIBRARIAN / ADMIN)
-// ============================================================================
-QWidget* MainWindow::createDashboardScreen() {
-    auto* dashboard = new QWidget(this);
-    auto* mainLayout = new QVBoxLayout(dashboard);
-
-    // Top Header Bar
-    auto* headerLayout = new QHBoxLayout();
-    auto* brandLabel = new QLabel("<h2>Library Management Dashboard</h2>", dashboard);
-    m_userInfoLabel = new QLabel(dashboard);
-    auto* logoutBtn = new QPushButton("Log Out", dashboard);
-
-    headerLayout->addWidget(brandLabel);
-    headerLayout->addStretch();
-    headerLayout->addWidget(m_userInfoLabel);
-    headerLayout->addSpacing(12);
-    headerLayout->addWidget(logoutBtn);
-
-    m_dashboardTabs = new QTabWidget(dashboard);
-
-    // ------------------------------------------------------------------------
-    // TAB 1: BOOK CATALOG (Tra cứu, Mượn & Đặt trước sách)
-    // ------------------------------------------------------------------------
-    auto* catalogTab = new QWidget();
-    auto* catalogLayout = new QVBoxLayout(catalogTab);
-
-    auto* searchBarLayout = new QHBoxLayout();
-    m_searchEdit = new QLineEdit();
-    m_searchEdit->setPlaceholderText("Search by Book Title, Author, or ISBN...");
-    m_borrowBtn = new QPushButton("Borrow Book");
-    m_borrowBtn->setObjectName("primaryButton");
-    m_reserveBtn = new QPushButton("Reserve Book");
-
-    searchBarLayout->addWidget(m_searchEdit);
-    searchBarLayout->addWidget(m_borrowBtn);
-    searchBarLayout->addWidget(m_reserveBtn);
-
-    m_bookTable = new QTableWidget(0, 5);
-    m_bookTable->setHorizontalHeaderLabels({"ISBN", "Title", "Author", "Available", "Status"});
-    m_bookTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    m_bookTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_bookTable->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_bookTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    catalogLayout->addLayout(searchBarLayout);
-    catalogLayout->addWidget(m_bookTable);
-
-    // ------------------------------------------------------------------------
-    // TAB 2: CIRCULATION & RETURNS (Duyệt Mượn/Trả & Tính phạt - Librarian/Admin)
-    // ------------------------------------------------------------------------
-    auto* circulationTab = new QWidget();
-    auto* circLayout = new QVBoxLayout(circulationTab);
-
-    auto* circActionLayout = new QHBoxLayout();
-    circActionLayout->addWidget(new QLabel("<b>Active Borrow Transactions</b>"));
-    circActionLayout->addStretch();
-    m_markPaidBtn = new QPushButton("Mark Fine Paid");
-    m_returnFineBtn = new QPushButton("Return Book & Calculate Fine");
-    m_returnFineBtn->setObjectName("successButton");
-    circActionLayout->addWidget(m_markPaidBtn);
-    circActionLayout->addWidget(m_returnFineBtn);
-
-    m_borrowTable = new QTableWidget(0, 8);
-    m_borrowTable->setHorizontalHeaderLabels({
-        "Record ID", "Member ID", "ISBN", "Book Title",
-        "Borrow Date", "Due Date", "Status", "Fine Status"
-    });
-    m_borrowTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    m_borrowTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_borrowTable->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_borrowTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    auto* resHeaderLayout = new QHBoxLayout();
-    resHeaderLayout->addWidget(new QLabel("<b>Pending Book Reservations</b>"));
-    resHeaderLayout->addStretch();
-    m_cancelReserveBtn = new QPushButton("Cancel Reservation");
-    resHeaderLayout->addWidget(m_cancelReserveBtn);
-
-    m_reservationTable = new QTableWidget(0, 6);
-    m_reservationTable->setHorizontalHeaderLabels({"Reserve ID", "Member ID", "ISBN", "Book Title", "Reserve Date", "Notes"});
-    m_reservationTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    m_reservationTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_reservationTable->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_reservationTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    circLayout->addLayout(circActionLayout);
-    circLayout->addWidget(m_borrowTable);
-    circLayout->addLayout(resHeaderLayout);
-    circLayout->addWidget(m_reservationTable);
-
-    // ------------------------------------------------------------------------
-    // TAB 3: REPORTS & ADMINISTRATION (Báo cáo & Quản trị - Administrator)
-    // ------------------------------------------------------------------------
-    auto* adminTab = new QWidget();
-    auto* adminLayout = new QVBoxLayout(adminTab);
-
-    auto* statsGroup = new QGroupBox("System Summary Report");
-    auto* statsLayout = new QHBoxLayout(statsGroup);
-
-    m_statTotalBooks = new QLabel();
-    m_statActiveBorrows = new QLabel();
-    m_statOverdueCount = new QLabel();
-    m_statTotalFines = new QLabel();
-
-    statsLayout->addWidget(m_statTotalBooks);
-    statsLayout->addWidget(m_statActiveBorrows);
-    statsLayout->addWidget(m_statOverdueCount);
-    statsLayout->addWidget(m_statTotalFines);
-
-    m_usersTable = new QTableWidget(0, 3);
-    m_usersTable->setHorizontalHeaderLabels({"Username", "Role", "Member / Staff ID"});
-    m_usersTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    m_usersTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
-    adminLayout->addWidget(statsGroup);
-    adminLayout->addWidget(new QLabel("<b>System Accounts & Role Assignments</b>"));
-    adminLayout->addWidget(m_usersTable);
-
-    m_dashboardTabs->addTab(catalogTab, "1. Book Catalog & Search");
-    m_dashboardTabs->addTab(circulationTab, "2. Borrow / Return & Fines");
-    m_dashboardTabs->addTab(adminTab, "3. Reports & Administration");
-
-    mainLayout->addLayout(headerLayout);
-    mainLayout->addWidget(m_dashboardTabs);
-
-    connect(logoutBtn, &QPushButton::clicked, this, &MainWindow::handleLogout);
-    connect(m_searchEdit, &QLineEdit::textChanged, this, &MainWindow::onSearchTextChanged);
-    connect(m_borrowBtn, &QPushButton::clicked, this, &MainWindow::onBorrowBookClicked);
-    connect(m_reserveBtn, &QPushButton::clicked, this, &MainWindow::onReserveBookClicked);
-    connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
-    connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
-    connect(m_markPaidBtn, &QPushButton::clicked, this, &MainWindow::onMarkFinePaidClicked);
-    connect(m_cancelReserveBtn, &QPushButton::clicked, this, &MainWindow::onCancelReservationClicked);
-    return dashboard;
-}
-
-void MainWindow::applyRolePermissions() {
-    bool isMember = (m_currentUser.role == UserRole::Member);
-    bool isAdmin  = (m_currentUser.role == UserRole::Administrator);
-
-    // Tab 1: Tất cả vai trò
-    m_dashboardTabs->setTabEnabled(0, true);
-    // Tab 2: Member xem lịch sử mượn, yêu cầu trả sách, hủy đặt trước; Librarian/Admin duyệt trả & thu phạt
-    m_dashboardTabs->setTabEnabled(1, true);
-    // Tab 3: Librarian & Admin xem báo cáo (FR10, UC-15); chỉ Admin quản lý tài khoản (UC-18)
-    m_dashboardTabs->setTabEnabled(2, !isMember);
-    // Phân quyền nút thao tác bên trong Tab 2
-    m_markPaidBtn->setVisible(!isMember);
-    m_returnFineBtn->setText(isMember ? "Request Return / View Fine" : "Return Book & Calculate Fine");
-
-    // Chỉ Administrator mới thấy bảng quản trị tài khoản ở Tab 3
-    m_usersTable->setVisible(isAdmin);
-    m_dashboardTabs->setCurrentIndex(0);
-}
-
-void MainWindow::refreshBookTable(const QString& filter) {
-    m_bookTable->setRowCount(0);
-    for (const auto& book : m_books) {
-        if (!filter.isEmpty() &&
-            !book.title.contains(filter, Qt::CaseInsensitive) &&
-            !book.author.contains(filter, Qt::CaseInsensitive) &&
-            !book.isbn.contains(filter, Qt::CaseInsensitive)) {
-            continue;
-        }
-        int row = m_bookTable->rowCount();
-        m_bookTable->insertRow(row);
-        m_bookTable->setItem(row, 0, new QTableWidgetItem(book.isbn));
-        m_bookTable->setItem(row, 1, new QTableWidgetItem(book.title));
-        m_bookTable->setItem(row, 2, new QTableWidgetItem(book.author));
-        m_bookTable->setItem(row, 3, new QTableWidgetItem(QString("%1 / %2").arg(book.availableCopies).arg(book.totalCopies)));
-        m_bookTable->setItem(row, 4, new QTableWidgetItem(book.availableCopies > 0 ? "Available" : "Unavailable"));
-    }
-}
-
-void MainWindow::refreshBorrowTable() {
-    QLocale vn(QLocale::Vietnamese);
-    m_borrowTable->setRowCount(0);
-    bool isMember = (m_currentUser.role == UserRole::Member);
-
-    for (const auto& rec : m_borrows) {
-        if (isMember && rec.memberId != m_currentUser.memberId) {
-            continue;
-        }
-        int row = m_borrowTable->rowCount();
-        m_borrowTable->insertRow(row);
-        m_borrowTable->setItem(row, 0, new QTableWidgetItem(rec.recordId));
-        m_borrowTable->setItem(row, 1, new QTableWidgetItem(rec.memberId));
-        m_borrowTable->setItem(row, 2, new QTableWidgetItem(rec.isbn));
-        m_borrowTable->setItem(row, 3, new QTableWidgetItem(rec.bookTitle));
-        m_borrowTable->setItem(row, 4, new QTableWidgetItem(rec.borrowDate.toString("dd/MM/yyyy")));
-        m_borrowTable->setItem(row, 5, new QTableWidgetItem(rec.dueDate.toString("dd/MM/yyyy")));
-
-        QString status = rec.isReturned ? "Returned"
-                         : (rec.dueDate < QDate::currentDate() ? "Overdue" : "Borrowed");
-        m_borrowTable->setItem(row, 6, new QTableWidgetItem(status));
-
-        double accruedFine = rec.fineAmount;
-        if (!rec.isReturned && rec.dueDate < QDate::currentDate()) {
-            int overdueDays = rec.dueDate.daysTo(QDate::currentDate());
-            accruedFine = overdueDays * 5000.0;
-        }
-
-        QString fineStatusText = "No Fine";
-        if (accruedFine > 0.0) {
-            QString formatted = vn.toString(static_cast<qulonglong>(accruedFine)) + " VND";
-            fineStatusText = (rec.finePaid >= accruedFine)
-                                 ? QString("Paid (%1)").arg(formatted)
-                                 : QString("Unpaid (%1)").arg(formatted);
-        }
-        m_borrowTable->setItem(row, 7, new QTableWidgetItem(fineStatusText));
-    }
-}
-
-void MainWindow::refreshReservationTable() {
-    m_reservationTable->setRowCount(0);
-    bool isMember = (m_currentUser.role == UserRole::Member);
-
-    for (const auto& res : m_reservations) {
-        if (isMember && res.memberId != m_currentUser.memberId) {
-            continue;
-        }
-        int row = m_reservationTable->rowCount();
-        m_reservationTable->insertRow(row);
-        m_reservationTable->setItem(row, 0, new QTableWidgetItem(res.reserveId));
-        m_reservationTable->setItem(row, 1, new QTableWidgetItem(res.memberId));
-        m_reservationTable->setItem(row, 2, new QTableWidgetItem(res.isbn));
-        m_reservationTable->setItem(row, 3, new QTableWidgetItem(res.bookTitle));
-        m_reservationTable->setItem(row, 4, new QTableWidgetItem(res.reserveDate.toString("dd/MM/yyyy")));
-        m_reservationTable->setItem(row, 5, new QTableWidgetItem(res.notes));
-    }
-}
-
-void MainWindow::refreshReportsTab() {
-    int totalBooksCount = 0;
-    for (const auto& b : m_books) totalBooksCount += b.totalCopies;
-
-    int activeBorrows = 0;
-    int overdueCount = 0;
-    double totalFines = 0.0;
-
-    for (const auto& r : m_borrows) {
-        totalFines += r.finePaid;
-        if (!r.isReturned) {
-            activeBorrows++;
-            if (r.dueDate < QDate::currentDate()) overdueCount++;
-        }
-    }
-
-    QLocale vn(QLocale::Vietnamese);
-    m_statTotalBooks->setText(QString("<b>Total Copies:</b> %1").arg(totalBooksCount));
-    m_statActiveBorrows->setText(QString("<b>Active Borrows:</b> %1").arg(activeBorrows));
-    m_statOverdueCount->setText(QString("<b>Overdue Loans:</b> <span style='color:#d9534f;'>%1</span>").arg(overdueCount));
-    m_statTotalFines->setText(QString("<b>Collected Fines:</b> %1 VND").arg(vn.toString(static_cast<qlonglong>(totalFines))));
-
-    m_usersTable->setRowCount(0);
-    for (const auto& u : m_users) {
-        int row = m_usersTable->rowCount();
-        m_usersTable->insertRow(row);
-        m_usersTable->setItem(row, 0, new QTableWidgetItem(u.username));
-        m_usersTable->setItem(row, 1, new QTableWidgetItem(roleToString(u.role)));
-        m_usersTable->setItem(row, 2, new QTableWidgetItem(u.memberId));
-    }
-}
-
 void MainWindow::onSearchTextChanged(const QString& text) {
     refreshBookTable(text);
 }
@@ -583,11 +320,11 @@ void MainWindow::onReturnAndFineClicked() {
                 if (calculatedFine > 0.0) {
                     QString formattedFine = vn.toString(static_cast<qulonglong>(calculatedFine));
                     msg += QString("\nAccrued fine: %1 VND (Status: Unpaid - click 'Mark Fine Paid' once collected).")
-                            .arg(formattedFine);
+                               .arg(formattedFine);
                 }
                 if (!notifiedMember.isEmpty()) {
                     msg += QString("\nNotification sent to %1: Reserved book is now available for pickup.")
-                            .arg(notifiedMember);
+                               .arg(notifiedMember);
                 }
                 QMessageBox::information(this, "Returned", msg);
             }
@@ -627,8 +364,615 @@ void MainWindow::onMarkFinePaidClicked() {
             QLocale vn(QLocale::Vietnamese);
             QMessageBox::information(this, "Fine Payment Recorded",
                                      QString("Collected %1 VND for %2. Status updated to Paid.")
-                                         .arg(vn.toString(static_cast<qlonglong>(rec.finePaid)), rec.recordId));
+                                         .arg(vn.toString(static_cast<qulonglong>(rec.finePaid)), rec.recordId));
             return;
         }
     }
+}
+
+// ============================================================================
+// 2. DASHBOARD / MAIN WINDOW (PHÂN QUYỀN MEMBER / LIBRARIAN / ADMIN)
+// ============================================================================
+QWidget* MainWindow::createDashboardScreen() {
+    auto* dashboard = new QWidget(this);
+    auto* mainLayout = new QVBoxLayout(dashboard);
+
+    // Top Header Bar
+    auto* headerLayout = new QHBoxLayout();
+    auto* brandLabel = new QLabel("<h2>Library Management Dashboard</h2>", dashboard);
+    m_userInfoLabel = new QLabel(dashboard);
+    auto* logoutBtn = new QPushButton("Log Out", dashboard);
+
+    headerLayout->addWidget(brandLabel);
+    headerLayout->addStretch();
+    headerLayout->addWidget(m_userInfoLabel);
+    headerLayout->addSpacing(12);
+    headerLayout->addWidget(logoutBtn);
+
+    m_dashboardTabs = new QTabWidget(dashboard);
+
+    // ------------------------------------------------------------------------
+    // TAB 1: BOOK CATALOG (Tra cứu, Mượn & Đặt trước sách)
+    // ------------------------------------------------------------------------
+    auto* catalogTab = new QWidget();
+    auto* catalogLayout = new QVBoxLayout(catalogTab); // <-- Gán trực tiếp catalogTab tại đây
+
+    auto* searchBarLayout = new QHBoxLayout();
+    m_searchEdit = new QLineEdit();
+    m_searchEdit->setPlaceholderText("Search by Book Title, Author, or ISBN...");
+    m_borrowBtn = new QPushButton("Borrow Book");
+    m_borrowBtn->setObjectName("primaryButton");
+    m_reserveBtn = new QPushButton("Reserve Book");
+
+    searchBarLayout->addWidget(m_searchEdit);
+    searchBarLayout->addWidget(m_borrowBtn);
+    searchBarLayout->addWidget(m_reserveBtn);
+
+    m_bookTable = new QTableWidget(0, 5);
+    m_bookTable->setHorizontalHeaderLabels({"ISBN", "Title", "Author", "Available", "Status"});
+    m_bookTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_bookTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_bookTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_bookTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    catalogLayout->addLayout(searchBarLayout);
+    catalogLayout->addWidget(m_bookTable);
+
+    // ------------------------------------------------------------------------
+    // TAB 2: CIRCULATION & RETURNS (Duyệt Mượn/Trả & Tính phạt - Librarian/Admin)
+    // ------------------------------------------------------------------------
+    auto* circulationTab = new QWidget();
+    auto* circLayout = new QVBoxLayout(circulationTab);
+
+    auto* circActionLayout = new QHBoxLayout();
+    circActionLayout->addWidget(new QLabel("<b>Active Borrow Transactions</b>"));
+    circActionLayout->addStretch();
+    m_markPaidBtn = new QPushButton("Mark Fine Paid");
+    m_returnFineBtn = new QPushButton("Return Book & Calculate Fine");
+    m_returnFineBtn->setObjectName("successButton");
+    circActionLayout->addWidget(m_markPaidBtn);
+    circActionLayout->addWidget(m_returnFineBtn);
+
+    m_borrowTable = new QTableWidget(0, 8);
+    m_borrowTable->setHorizontalHeaderLabels({
+        "Record ID", "Member ID", "ISBN", "Book Title",
+        "Borrow Date", "Due Date", "Status", "Fine Status"
+    });
+    m_borrowTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_borrowTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_borrowTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_borrowTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    auto* resHeaderLayout = new QHBoxLayout();
+    resHeaderLayout->addWidget(new QLabel("<b>Pending Book Reservations</b>"));
+    resHeaderLayout->addStretch();
+    m_cancelReserveBtn = new QPushButton("Cancel Reservation");
+    resHeaderLayout->addWidget(m_cancelReserveBtn);
+
+    m_reservationTable = new QTableWidget(0, 6);
+    m_reservationTable->setHorizontalHeaderLabels({"Reserve ID", "Member ID", "ISBN", "Book Title", "Reserve Date", "Notes"});
+    m_reservationTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_reservationTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_reservationTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_reservationTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    circLayout->addLayout(circActionLayout);
+    circLayout->addWidget(m_borrowTable);
+    circLayout->addLayout(resHeaderLayout);
+    circLayout->addWidget(m_reservationTable);
+
+    // ------------------------------------------------------------------------
+    // TAB 3: REPORTS & ADMINISTRATION (Báo cáo & Quản trị - Administrator)
+    // ------------------------------------------------------------------------
+    auto* adminTab = new QWidget();
+    auto* adminLayout = new QVBoxLayout(adminTab);
+
+    auto* statsGroup = new QGroupBox("System Summary Report");
+    auto* statsLayout = new QHBoxLayout(statsGroup);
+
+    m_statTotalBooks = new QLabel();
+    m_statActiveBorrows = new QLabel();
+    m_statOverdueCount = new QLabel();
+    m_statTotalFines = new QLabel();
+
+    statsLayout->addWidget(m_statTotalBooks);
+    statsLayout->addWidget(m_statActiveBorrows);
+    statsLayout->addWidget(m_statOverdueCount);
+    statsLayout->addWidget(m_statTotalFines);
+
+    auto* reportControlsLayout = new QHBoxLayout();
+    m_reportTypeCombo = new QComboBox();
+    m_reportTypeCombo->addItems({
+        "Borrowing Report",
+        "Return Report",
+        "Overdue Books Report",
+        "Fine Collection Report",
+        "Member Activity Report",
+        "Inventory Summary"
+    });
+    m_reportFilterEdit = new QLineEdit();
+    m_reportFilterEdit->setPlaceholderText("Filter by Member ID, ISBN, Title, or Status...");
+    m_exportReportBtn = new QPushButton("Export Report (CSV / HTML)");
+    m_exportReportBtn->setObjectName("primaryButton");
+
+    reportControlsLayout->addWidget(new QLabel("Report Type:"));
+    reportControlsLayout->addWidget(m_reportTypeCombo);
+    reportControlsLayout->addWidget(m_reportFilterEdit);
+    reportControlsLayout->addWidget(m_exportReportBtn);
+
+    m_reportTable = new QTableWidget(0, 5);
+    m_reportTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_reportTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    m_adminUsersGroup = new QWidget();
+    auto* adminUsersLayout = new QVBoxLayout(m_adminUsersGroup);
+    adminUsersLayout->setContentsMargins(0, 6, 0, 0);
+
+    auto* userToolbarLayout = new QHBoxLayout();
+    userToolbarLayout->addWidget(new QLabel("<b>System Accounts & Role Assignments (Administrator)</b>"));
+    userToolbarLayout->addStretch();
+    m_addUserBtn = new QPushButton("Add Account");
+    m_toggleRoleBtn = new QPushButton("Cycle Role");
+    m_removeUserBtn = new QPushButton("Remove Account");
+    userToolbarLayout->addWidget(m_addUserBtn);
+    userToolbarLayout->addWidget(m_toggleRoleBtn);
+    userToolbarLayout->addWidget(m_removeUserBtn);
+
+    m_usersTable = new QTableWidget(0, 3);
+    m_usersTable->setHorizontalHeaderLabels({"Username", "Role", "Member / Staff ID"});
+    m_usersTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    m_usersTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_usersTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_usersTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    adminUsersLayout->addLayout(userToolbarLayout);
+    adminUsersLayout->addWidget(m_usersTable);
+
+    adminLayout->addWidget(statsGroup);
+    adminLayout->addLayout(reportControlsLayout);
+    adminLayout->addWidget(m_reportTable);
+    adminLayout->addWidget(m_adminUsersGroup);
+
+    m_dashboardTabs->addTab(catalogTab, "1. Book Catalog & Search");
+    m_dashboardTabs->addTab(circulationTab, "2. Borrow / Return & Fines");
+    m_dashboardTabs->addTab(adminTab, "3. Reports & Administration");
+
+    mainLayout->addLayout(headerLayout);
+    mainLayout->addWidget(m_dashboardTabs);
+
+    connect(logoutBtn, &QPushButton::clicked, this, &MainWindow::handleLogout);
+    connect(m_searchEdit, &QLineEdit::textChanged, this, &MainWindow::onSearchTextChanged);
+    connect(m_borrowBtn, &QPushButton::clicked, this, &MainWindow::onBorrowBookClicked);
+    connect(m_reserveBtn, &QPushButton::clicked, this, &MainWindow::onReserveBookClicked);
+    connect(m_returnFineBtn, &QPushButton::clicked, this, &MainWindow::onReturnAndFineClicked);
+    connect(m_markPaidBtn, &QPushButton::clicked, this, &MainWindow::onMarkFinePaidClicked);
+    connect(m_cancelReserveBtn, &QPushButton::clicked, this, &MainWindow::onCancelReservationClicked);
+    connect(m_reportTypeCombo, QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &MainWindow::onReportTypeChanged);
+    connect(m_reportFilterEdit, &QLineEdit::textChanged,
+            this, [this](const QString&) { refreshReportsTab(); });
+    connect(m_exportReportBtn, &QPushButton::clicked, this, &MainWindow::onExportReportClicked);
+    connect(m_addUserBtn, &QPushButton::clicked, this, &MainWindow::onAddUserClicked);
+    connect(m_toggleRoleBtn, &QPushButton::clicked, this, &MainWindow::onToggleUserRoleClicked);
+    connect(m_removeUserBtn, &QPushButton::clicked, this, &MainWindow::onRemoveUserClicked);
+    return dashboard;
+}
+
+void MainWindow::applyRolePermissions() {
+    if (!m_dashboardTabs) return;
+
+    bool isMember = (m_currentUser.role == UserRole::Member);
+    bool isAdmin  = (m_currentUser.role == UserRole::Administrator);
+
+    m_dashboardTabs->setTabEnabled(0, true);
+    m_dashboardTabs->setTabEnabled(1, true);
+    m_dashboardTabs->setTabEnabled(2, !isMember);
+
+    if (m_markPaidBtn) {
+        m_markPaidBtn->setVisible(!isMember);
+    }
+    if (m_returnFineBtn) {
+        m_returnFineBtn->setText(isMember ? "Request Return / View Fine" : "Return Book & Calculate Fine");
+    }
+    if (m_adminUsersGroup) {
+        m_adminUsersGroup->setVisible(isAdmin);
+    }
+    if (m_usersTable) {
+        m_usersTable->setVisible(isAdmin);
+    }
+
+    m_dashboardTabs->setCurrentIndex(0);
+}
+
+void MainWindow::refreshBookTable(const QString& filter) {
+    m_bookTable->setRowCount(0);
+    for (const auto& book : m_books) {
+        if (!filter.isEmpty() &&
+            !book.title.contains(filter, Qt::CaseInsensitive) &&
+            !book.author.contains(filter, Qt::CaseInsensitive) &&
+            !book.isbn.contains(filter, Qt::CaseInsensitive)) {
+            continue;
+        }
+        int row = m_bookTable->rowCount();
+        m_bookTable->insertRow(row);
+        m_bookTable->setItem(row, 0, new QTableWidgetItem(book.isbn));
+        m_bookTable->setItem(row, 1, new QTableWidgetItem(book.title));
+        m_bookTable->setItem(row, 2, new QTableWidgetItem(book.author));
+        m_bookTable->setItem(row, 3, new QTableWidgetItem(QString("%1 / %2").arg(book.availableCopies).arg(book.totalCopies)));
+        m_bookTable->setItem(row, 4, new QTableWidgetItem(book.availableCopies > 0 ? "Available" : "Unavailable"));
+    }
+}
+
+void MainWindow::refreshBorrowTable() {
+    QLocale vn(QLocale::Vietnamese);
+    m_borrowTable->setRowCount(0);
+    bool isMember = (m_currentUser.role == UserRole::Member);
+
+    for (const auto& rec : m_borrows) {
+        if (isMember && rec.memberId != m_currentUser.memberId) {
+            continue;
+        }
+        int row = m_borrowTable->rowCount();
+        m_borrowTable->insertRow(row);
+        m_borrowTable->setItem(row, 0, new QTableWidgetItem(rec.recordId));
+        m_borrowTable->setItem(row, 1, new QTableWidgetItem(rec.memberId));
+        m_borrowTable->setItem(row, 2, new QTableWidgetItem(rec.isbn));
+        m_borrowTable->setItem(row, 3, new QTableWidgetItem(rec.bookTitle));
+        m_borrowTable->setItem(row, 4, new QTableWidgetItem(rec.borrowDate.toString("dd/MM/yyyy")));
+        m_borrowTable->setItem(row, 5, new QTableWidgetItem(rec.dueDate.toString("dd/MM/yyyy")));
+
+        QString status = rec.isReturned ? "Returned"
+                         : (rec.dueDate < QDate::currentDate() ? "Overdue" : "Borrowed");
+        m_borrowTable->setItem(row, 6, new QTableWidgetItem(status));
+
+        double accruedFine = rec.fineAmount;
+        if (!rec.isReturned && rec.dueDate < QDate::currentDate()) {
+            int overdueDays = rec.dueDate.daysTo(QDate::currentDate());
+            accruedFine = overdueDays * 5000.0;
+        }
+
+        QString fineStatusText = "No Fine";
+        if (accruedFine > 0.0) {
+            QString formatted = vn.toString(static_cast<qulonglong>(accruedFine)) + " VND";
+            fineStatusText = (rec.finePaid >= accruedFine)
+                                 ? QString("Paid (%1)").arg(formatted)
+                                 : QString("Unpaid (%1)").arg(formatted);
+        }
+        m_borrowTable->setItem(row, 7, new QTableWidgetItem(fineStatusText));
+    }
+}
+
+void MainWindow::refreshReservationTable() {
+    m_reservationTable->setRowCount(0);
+    bool isMember = (m_currentUser.role == UserRole::Member);
+
+    for (const auto& res : m_reservations) {
+        if (isMember && res.memberId != m_currentUser.memberId) {
+            continue;
+        }
+        int row = m_reservationTable->rowCount();
+        m_reservationTable->insertRow(row);
+        m_reservationTable->setItem(row, 0, new QTableWidgetItem(res.reserveId));
+        m_reservationTable->setItem(row, 1, new QTableWidgetItem(res.memberId));
+        m_reservationTable->setItem(row, 2, new QTableWidgetItem(res.isbn));
+        m_reservationTable->setItem(row, 3, new QTableWidgetItem(res.bookTitle));
+        m_reservationTable->setItem(row, 4, new QTableWidgetItem(res.reserveDate.toString("dd/MM/yyyy")));
+        m_reservationTable->setItem(row, 5, new QTableWidgetItem(res.notes));
+    }
+}
+
+void MainWindow::refreshReportsTab() {
+    int totalBooksCount = 0;
+    for (const auto& b : m_books) totalBooksCount += b.totalCopies;
+
+    int activeBorrows = 0;
+    int overdueCount = 0;
+    double totalCollectedFines = 0.0;
+
+    for (const auto& r : m_borrows) {
+        totalCollectedFines += r.finePaid;
+        if (!r.isReturned) {
+            activeBorrows++;
+            if (r.dueDate < QDate::currentDate()) overdueCount++;
+        }
+    }
+
+    QLocale vn(QLocale::Vietnamese);
+    m_statTotalBooks->setText(QString("<b>Total Copies:</b> %1").arg(totalBooksCount));
+    m_statActiveBorrows->setText(QString("<b>Active Borrows:</b> %1").arg(activeBorrows));
+    m_statOverdueCount->setText(QString("<b>Overdue Loans:</b> <span style='color:#d9534f;'>%1</span>").arg(overdueCount));
+    m_statTotalFines->setText(QString("<b>Collected Fines:</b> %1 VND").arg(vn.toString(static_cast<qulonglong>(totalCollectedFines))));
+
+    // Cập nhật bảng báo cáo chi tiết theo loại & bộ lọc (FR10, FR11, UC-15)
+    QString filter = m_reportFilterEdit ? m_reportFilterEdit->text().trimmed() : "";
+    int reportIdx = m_reportTypeCombo ? m_reportTypeCombo->currentIndex() : 0;
+
+    auto matchesFilter = [&](const QString& s1, const QString& s2 = "", const QString& s3 = "") -> bool {
+        if (filter.isEmpty()) return true;
+        return s1.contains(filter, Qt::CaseInsensitive) ||
+               s2.contains(filter, Qt::CaseInsensitive) ||
+               s3.contains(filter, Qt::CaseInsensitive);
+    };
+
+    if (m_reportTable) {
+        m_reportTable->setRowCount(0);
+
+        if (reportIdx == 0) { // Borrowing Report
+            m_reportTable->setColumnCount(5);
+            m_reportTable->setHorizontalHeaderLabels({"Record ID", "Member ID", "Book Title", "Borrow Date", "Due Date"});
+            for (const auto& r : m_borrows) {
+                if (!matchesFilter(r.recordId, r.memberId, r.bookTitle)) continue;
+                int row = m_reportTable->rowCount();
+                m_reportTable->insertRow(row);
+                m_reportTable->setItem(row, 0, new QTableWidgetItem(r.recordId));
+                m_reportTable->setItem(row, 1, new QTableWidgetItem(r.memberId));
+                m_reportTable->setItem(row, 2, new QTableWidgetItem(r.bookTitle));
+                m_reportTable->setItem(row, 3, new QTableWidgetItem(r.borrowDate.toString("dd/MM/yyyy")));
+                m_reportTable->setItem(row, 4, new QTableWidgetItem(r.dueDate.toString("dd/MM/yyyy")));
+            }
+        } else if (reportIdx == 1) { // Return Report
+            m_reportTable->setColumnCount(4);
+            m_reportTable->setHorizontalHeaderLabels({"Record ID", "Member ID", "Book Title", "Return Status"});
+            for (const auto& r : m_borrows) {
+                QString st = r.isReturned ? "Returned" : "Not Returned";
+                if (!matchesFilter(r.recordId, r.memberId, r.bookTitle + " " + st)) continue;
+                int row = m_reportTable->rowCount();
+                m_reportTable->insertRow(row);
+                m_reportTable->setItem(row, 0, new QTableWidgetItem(r.recordId));
+                m_reportTable->setItem(row, 1, new QTableWidgetItem(r.memberId));
+                m_reportTable->setItem(row, 2, new QTableWidgetItem(r.bookTitle));
+                m_reportTable->setItem(row, 3, new QTableWidgetItem(st));
+            }
+        } else if (reportIdx == 2) { // Overdue Books Report
+            m_reportTable->setColumnCount(5);
+            m_reportTable->setHorizontalHeaderLabels({"Record ID", "Member ID", "Book Title", "Overdue Days", "Estimated Fine (5,000/d)"});
+            for (const auto& r : m_borrows) {
+                int days = (!r.isReturned && r.dueDate < QDate::currentDate())
+                               ? r.dueDate.daysTo(QDate::currentDate())
+                               : 0;
+                if (days <= 0) continue;
+                if (!matchesFilter(r.recordId, r.memberId, r.bookTitle)) continue;
+                qulonglong estFine = static_cast<qulonglong>(days) * 5000ULL;
+                int row = m_reportTable->rowCount();
+                m_reportTable->insertRow(row);
+                m_reportTable->setItem(row, 0, new QTableWidgetItem(r.recordId));
+                m_reportTable->setItem(row, 1, new QTableWidgetItem(r.memberId));
+                m_reportTable->setItem(row, 2, new QTableWidgetItem(r.bookTitle));
+                m_reportTable->setItem(row, 3, new QTableWidgetItem(QString::number(days)));
+                m_reportTable->setItem(row, 4, new QTableWidgetItem(vn.toString(estFine) + " VND"));
+            }
+        } else if (reportIdx == 3) { // Fine Collection Report
+            m_reportTable->setColumnCount(4);
+            m_reportTable->setHorizontalHeaderLabels({"Record ID", "Member ID", "Book Title", "Collected Fine"});
+            for (const auto& r : m_borrows) {
+                if (!matchesFilter(r.recordId, r.memberId, r.bookTitle)) continue;
+                int row = m_reportTable->rowCount();
+                m_reportTable->insertRow(row);
+                m_reportTable->setItem(row, 0, new QTableWidgetItem(r.recordId));
+                m_reportTable->setItem(row, 1, new QTableWidgetItem(r.memberId));
+                m_reportTable->setItem(row, 2, new QTableWidgetItem(r.bookTitle));
+                m_reportTable->setItem(row, 3, new QTableWidgetItem(vn.toString(static_cast<qulonglong>(r.finePaid)) + " VND"));
+            }
+        } else if (reportIdx == 4) { // Member Activity Report
+            m_reportTable->setColumnCount(4);
+            m_reportTable->setHorizontalHeaderLabels({"Member ID", "Username", "Borrow Count", "Reservation Count"});
+            for (const auto& u : m_users) {
+                if (!matchesFilter(u.memberId, u.username, roleToString(u.role))) continue;
+                int bCount = 0;
+                int rCount = 0;
+                for (const auto& br : m_borrows) if (br.memberId == u.memberId) bCount++;
+                for (const auto& rs : m_reservations) if (rs.memberId == u.memberId) rCount++;
+
+                int row = m_reportTable->rowCount();
+                m_reportTable->insertRow(row);
+                m_reportTable->setItem(row, 0, new QTableWidgetItem(u.memberId));
+                m_reportTable->setItem(row, 1, new QTableWidgetItem(u.username));
+                m_reportTable->setItem(row, 2, new QTableWidgetItem(QString::number(bCount)));
+                m_reportTable->setItem(row, 3, new QTableWidgetItem(QString::number(rCount)));
+            }
+        } else { // Inventory Summary (FR11)
+            m_reportTable->setColumnCount(5);
+            m_reportTable->setHorizontalHeaderLabels({"ISBN", "Title", "Author", "Available", "Total Copies"});
+            for (const auto& b : m_books) {
+                if (!matchesFilter(b.isbn, b.title, b.author)) continue;
+                int row = m_reportTable->rowCount();
+                m_reportTable->insertRow(row);
+                m_reportTable->setItem(row, 0, new QTableWidgetItem(b.isbn));
+                m_reportTable->setItem(row, 1, new QTableWidgetItem(b.title));
+                m_reportTable->setItem(row, 2, new QTableWidgetItem(b.author));
+                m_reportTable->setItem(row, 3, new QTableWidgetItem(QString::number(b.availableCopies)));
+                m_reportTable->setItem(row, 4, new QTableWidgetItem(QString::number(b.totalCopies)));
+            }
+        }
+    }
+
+    if (m_usersTable) {
+        m_usersTable->setRowCount(0);
+        for (const auto& u : m_users) {
+            int row = m_usersTable->rowCount();
+            m_usersTable->insertRow(row);
+            m_usersTable->setItem(row, 0, new QTableWidgetItem(u.username));
+            m_usersTable->setItem(row, 1, new QTableWidgetItem(roleToString(u.role)));
+            m_usersTable->setItem(row, 2, new QTableWidgetItem(u.memberId));
+        }
+    }
+}
+
+void MainWindow::onReportTypeChanged(int) {
+    refreshReportsTab();
+}
+
+void MainWindow::onExportReportClicked() {
+    if (!m_reportTable || m_reportTable->rowCount() == 0) {
+        QMessageBox::information(this, "Empty Report", "There are no report rows to export.");
+        return;
+    }
+
+    QString suggestedName = m_reportTypeCombo->currentText().toLower().replace(' ', '_') + ".csv";
+    QString filePath = QFileDialog::getSaveFileName(
+        this, "Export Report", suggestedName,
+        "CSV / Excel Files (*.csv);;HTML Report (*.html);;Text Report (*.txt)"
+    );
+    if (filePath.isEmpty()) return;
+
+    QFile file(filePath);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        QMessageBox::warning(this, "Export Failed", "Could not write to the selected file.");
+        return;
+    }
+
+    QTextStream out(&file);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    out.setEncoding(QStringConverter::Utf8);
+#endif
+
+    int cols = m_reportTable->columnCount();
+    int rows = m_reportTable->rowCount();
+
+    if (filePath.endsWith(".html", Qt::CaseInsensitive)) {
+        out << "<html><head><meta charset='utf-8'><title>" << m_reportTypeCombo->currentText()
+            << "</title></head><body><h2>" << m_reportTypeCombo->currentText()
+            << "</h2><table border='1' cellpadding='6' cellspacing='0'><tr>";
+        for (int c = 0; c < cols; ++c) {
+            out << "<th>" << m_reportTable->horizontalHeaderItem(c)->text().toHtmlEscaped() << "</th>";
+        }
+        out << "</tr>\n";
+        for (int r = 0; r < rows; ++r) {
+            out << "<tr>";
+            for (int c = 0; c < cols; ++c) {
+                QString val = m_reportTable->item(r, c) ? m_reportTable->item(r, c)->text() : "";
+                out << "<td>" << val.toHtmlEscaped() << "</td>";
+            }
+            out << "</tr>\n";
+        }
+        out << "</table></body></html>\n";
+    } else {
+        QString sep = filePath.endsWith(".txt", Qt::CaseInsensitive) ? "\t" : ",";
+        for (int c = 0; c < cols; ++c) {
+            QString h = m_reportTable->horizontalHeaderItem(c)->text().replace("\"", "\"\"");
+            out << "\"" << h << "\"" << (c + 1 < cols ? sep : "");
+        }
+        out << "\n";
+        for (int r = 0; r < rows; ++r) {
+            for (int c = 0; c < cols; ++c) {
+                QString val = m_reportTable->item(r, c) ? m_reportTable->item(r, c)->text() : "";
+                val.replace("\"", "\"\"");
+                out << "\"" << val << "\"" << (c + 1 < cols ? sep : "");
+            }
+            out << "\n";
+        }
+    }
+
+    file.close();
+    QMessageBox::information(this, "Export Successful",
+                             QString("Report exported successfully to:\n%1").arg(filePath));
+}
+
+void MainWindow::onAddUserClicked() {
+    if (m_currentUser.role != UserRole::Administrator) {
+        QMessageBox::warning(this, "Access Denied", "Only Administrators can add user accounts.");
+        return;
+    }
+
+    bool ok = false;
+    QString uname = QInputDialog::getText(this, "Add User Account", "Username:", QLineEdit::Normal, "", &ok).trimmed();
+    if (!ok || uname.isEmpty()) return;
+
+    for (const auto& u : m_users) {
+        if (u.username.compare(uname, Qt::CaseInsensitive) == 0) {
+            QMessageBox::warning(this, "Duplicate User", "Username already exists.");
+            return;
+        }
+    }
+
+    QString pwd = QInputDialog::getText(this, "Add User Account", "Password:", QLineEdit::Password, "123", &ok);
+    if (!ok || pwd.isEmpty()) return;
+
+    QStringList roles = {"Member", "Librarian", "Administrator"};
+    QString chosenRole = QInputDialog::getItem(this, "Add User Account", "Select Role:", roles, 0, false, &ok);
+    if (!ok) return;
+
+    UserRole role = UserRole::Member;
+    QString prefix = "MEM";
+    if (chosenRole == "Librarian") {
+        role = UserRole::Librarian;
+        prefix = "LIB";
+    } else if (chosenRole == "Administrator") {
+        role = UserRole::Administrator;
+        prefix = "ADM";
+    }
+
+    QString codeId = QString("%1-%2").arg(prefix).arg(100 + m_users.size() + 1);
+    m_users.append({uname, pwd, role, codeId});
+    refreshReportsTab();
+    QMessageBox::information(this, "Account Added",
+                             QString("Created account '%1' (%2) with ID %3.").arg(uname, chosenRole, codeId));
+}
+
+void MainWindow::onToggleUserRoleClicked() {
+    if (m_currentUser.role != UserRole::Administrator) {
+        QMessageBox::warning(this, "Access Denied", "Only Administrators can change user roles.");
+        return;
+    }
+
+    int row = m_usersTable->currentRow();
+    if (row < 0 || row >= m_users.size()) {
+        QMessageBox::information(this, "Select Account", "Please select a user account first.");
+        return;
+    }
+
+    auto& target = m_users[row];
+    if (target.role == UserRole::Member) {
+        target.role = UserRole::Librarian;
+    } else if (target.role == UserRole::Librarian) {
+        target.role = UserRole::Administrator;
+    } else {
+        int adminCount = 0;
+        for (const auto& u : m_users) if (u.role == UserRole::Administrator) adminCount++;
+        if (adminCount <= 1) {
+            QMessageBox::warning(this, "Last Administrator",
+                                 "Cannot demote the last Administrator account in the system.");
+            return;
+        }
+        target.role = UserRole::Member;
+    }
+
+    refreshReportsTab();
+    QMessageBox::information(this, "Role Updated",
+                             QString("Updated role of '%1' to %2.")
+                                 .arg(target.username, roleToString(target.role)));
+}
+
+void MainWindow::onRemoveUserClicked() {
+    if (m_currentUser.role != UserRole::Administrator) {
+        QMessageBox::warning(this, "Access Denied", "Only Administrators can remove user accounts.");
+        return;
+    }
+
+    int row = m_usersTable->currentRow();
+    if (row < 0 || row >= m_users.size()) {
+        QMessageBox::information(this, "Select Account", "Please select a user account to remove.");
+        return;
+    }
+
+    const auto& target = m_users[row];
+    if (target.username == m_currentUser.username) {
+        QMessageBox::warning(this, "Action Blocked", "You cannot remove the currently logged-in account.");
+        return;
+    }
+    if (target.role == UserRole::Administrator) {
+        int adminCount = 0;
+        for (const auto& u : m_users) if (u.role == UserRole::Administrator) adminCount++;
+        if (adminCount <= 1) {
+            QMessageBox::warning(this, "Last Administrator",
+                                 "Cannot remove the last Administrator account.");
+            return;
+        }
+    }
+
+    QString removedName = target.username;
+    m_users.removeAt(row);
+    refreshReportsTab();
+    QMessageBox::information(this, "Account Removed",
+                             QString("Account '%1' has been removed.").arg(removedName));
 }

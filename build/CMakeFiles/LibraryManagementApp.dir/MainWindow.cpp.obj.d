@@ -430,6 +430,8 @@ CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qstyle.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtabbar.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h \
  C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \
@@ -463,4 +465,44 @@ CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qdialogbuttonbox.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QInputDialog \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qinputdialog.h \
- C:/msys64/ucrt64/include/qt6/QtCore/QLocale
+ C:/msys64/ucrt64/include/qt6/QtCore/QLocale \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/QFileDialog \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/qfiledialog.h \
+ C:/msys64/ucrt64/include/qt6/QtCore/qdir.h \
+ C:/msys64/ucrt64/include/qt6/QtCore/qdirlisting.h \
+ C:/msys64/ucrt64/include/qt6/QtCore/qfiledevice.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/filesystem \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/fs_fwd.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/fs_path.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/locale \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/locale_facets.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/cwctype \
+ C:/msys64/ucrt64/include/wctype.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/x86_64-w64-mingw32/bits/ctype_base.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/x86_64-w64-mingw32/bits/ctype_inline.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/locale_facets.tcc \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/locale_facets_nonio.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/x86_64-w64-mingw32/bits/time_members.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/x86_64-w64-mingw32/bits/messages_members.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/codecvt.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/locale_facets_nonio.tcc \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/locale_conv.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/iomanip \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/quoted_string.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/sstream \
+ C:/msys64/ucrt64/include/c++/16.2.0/istream \
+ C:/msys64/ucrt64/include/c++/16.2.0/ios \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/basic_ios.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/basic_ios.tcc \
+ C:/msys64/ucrt64/include/c++/16.2.0/ostream \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/ostream.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/ostream_print.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/ostream.tcc \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/istream.tcc \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/sstream.tcc \
+ C:/msys64/ucrt64/include/c++/16.2.0/codecvt \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/fs_dir.h \
+ C:/msys64/ucrt64/include/c++/16.2.0/bits/fs_ops.h \
+ C:/msys64/ucrt64/include/qt6/QtCore/qfile.h \
+ C:/msys64/ucrt64/include/qt6/QtCore/qfileinfo.h \
+ C:/msys64/ucrt64/include/qt6/QtCore/QTextStream

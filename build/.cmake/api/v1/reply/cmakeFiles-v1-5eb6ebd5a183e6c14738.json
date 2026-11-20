@@ -11,12 +11,12 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeSystemSpecificInitialize.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Windows-Initialize.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-Initialize.cmake"
 		},
 		{
 			"isGenerated" : true,
@@ -25,62 +25,62 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeSystemSpecificInformation.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeGenericSystem.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeGenericSystem.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeInitializeConfigs.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeInitializeConfigs.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Windows.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/WindowsPaths.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/WindowsPaths.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeCXXInformation.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeCXXInformation.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeLanguageInformation.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeLanguageInformation.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Compiler/GNU-CXX.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU-CXX.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Compiler/GNU.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Compiler/GNU.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Windows-GNU-CXX.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Windows-GNU.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU.cmake"
 		},
 		{
 			"isGenerated" : true,
@@ -89,57 +89,57 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeRCInformation.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeRCInformation.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Windows-windres.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-windres.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Windows-GNU-CXX-ABI.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeCommonLanguageInclude.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CMakeCXXLinkerInformation.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCXXLinkerInformation.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CMakeCommonLinkerInformation.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Linker/GNU-CXX.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Linker/GNU-CXX.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Linker/GNU.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Linker/GNU.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Linker/Windows-GNU-CXX.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU-CXX.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Linker/Windows-GNU.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/Windows-GNU.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Platform/Linker/GNU.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Platform/Linker/GNU.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -196,42 +196,42 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckCXXCompilerFlag.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckCompilerFlag.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCompilerFlag.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckFlagCommonConfig.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckFlagCommonConfig.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckSourceCompiles.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckCommon.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCommon.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckCXXSourceCompiles.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckSourceCompiles.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -384,7 +384,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -393,42 +393,42 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindThreads.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindThreads.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckLibraryExists.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckLibraryExists.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckCommon.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCommon.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckIncludeFileCXX.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckIncludeFileCXX.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/Internal/CheckCommon.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/Internal/CheckCommon.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckCXXSourceCompiles.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageHandleStandardArgs.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageMessage.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -477,7 +477,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckCXXCompilerFlag.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckCXXCompilerFlag.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -630,7 +630,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -651,7 +651,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -672,7 +672,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -693,7 +693,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -734,7 +734,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -755,7 +755,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -820,7 +820,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -833,17 +833,17 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CheckCXXSourceCompiles.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageHandleStandardArgs.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageMessage.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -860,7 +860,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -885,7 +885,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -942,7 +942,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/GNUInstallDirs.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/GNUInstallDirs.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -963,7 +963,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -976,27 +976,27 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindVulkan.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindVulkan.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageHandleStandardArgs.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageMessage.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageHandleStandardArgs.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
 		},
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/FindPackageMessage.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/FindPackageMessage.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1013,7 +1013,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1034,7 +1034,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1075,7 +1075,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1100,7 +1100,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1125,7 +1125,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1150,7 +1150,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1175,7 +1175,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1200,7 +1200,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1225,7 +1225,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1250,7 +1250,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,
@@ -1303,7 +1303,7 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake"
+			"path" : "C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake"
 		},
 		{
 			"isExternal" : true,

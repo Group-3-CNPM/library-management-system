@@ -69,3 +69,4 @@ int main(int argc, char* argv[]) {
     return app.exec();
 }
 //.\build\LibraryManagementApp.exe
+// cmake --build build

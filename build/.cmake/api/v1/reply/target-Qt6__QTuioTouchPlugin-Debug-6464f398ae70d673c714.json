@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/msys64/ucrt64/share/qt6/plugins/platforms/qminimal.dll"
+			"path" : "C:/msys64/ucrt64/share/qt6/plugins/generic/qtuiotouchplugin.dll"
 		}
 	],
 	"backtrace" : 19,
@@ -21,12 +21,12 @@
 		],
 		"files" : 
 		[
-			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginTargets.cmake",
-			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QMinimalIntegrationPluginConfig.cmake",
+			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginTargets.cmake",
+			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QTuioTouchPluginConfig.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
@@ -145,11 +145,11 @@
 		"major" : 2,
 		"minor" : 12
 	},
-	"id" : "Qt6::QMinimalIntegrationPlugin::@6890427a1f51a3e7e1df",
+	"id" : "Qt6::QTuioTouchPlugin::@6890427a1f51a3e7e1df",
 	"imported" : true,
 	"local" : true,
-	"name" : "Qt6::QMinimalIntegrationPlugin",
-	"nameOnDisk" : "qminimal.dll",
+	"name" : "Qt6::QTuioTouchPlugin",
+	"nameOnDisk" : "qtuiotouchplugin.dll",
 	"paths" : 
 	{
 		"build" : ".",

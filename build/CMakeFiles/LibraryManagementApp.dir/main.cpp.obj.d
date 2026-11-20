@@ -443,6 +443,8 @@ CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qstyle.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtabbar.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h \
  C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \

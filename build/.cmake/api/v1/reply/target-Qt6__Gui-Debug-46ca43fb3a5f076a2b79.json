@@ -3,10 +3,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/msys64/ucrt64/bin/Qt6Core.dll"
+			"path" : "C:/msys64/ucrt64/bin/Qt6Gui.dll"
 		},
 		{
-			"path" : "C:/msys64/ucrt64/lib/libQt6Core.dll.a"
+			"path" : "C:/msys64/ucrt64/lib/libQt6Gui.dll.a"
 		}
 	],
 	"backtrace" : 14,
@@ -24,9 +24,9 @@
 		],
 		"files" : 
 		[
-			"C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
-			"C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
-			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
@@ -99,7 +99,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 59,
+				"line" : 55,
 				"parent" : 11
 			},
 			{
@@ -125,24 +125,24 @@
 		"major" : 2,
 		"minor" : 12
 	},
-	"id" : "Qt6::Core::@6890427a1f51a3e7e1df",
+	"id" : "Qt6::Gui::@6890427a1f51a3e7e1df",
 	"imported" : true,
 	"interfaceCompileDependencies" : 
 	[
 		{
 			"backtrace" : 15,
-			"id" : "Qt6::Platform::@6890427a1f51a3e7e1df"
+			"id" : "Qt6::Core::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 15,
-			"id" : "WrapAtomic::WrapAtomic::@6890427a1f51a3e7e1df"
+			"id" : "WrapVulkanHeaders::WrapVulkanHeaders::@6890427a1f51a3e7e1df"
 		}
 	],
 	"interfaceIncludes" : 
 	[
 		{
 			"isSystem" : true,
-			"path" : "C:/msys64/ucrt64/include/qt6/QtCore"
+			"path" : "C:/msys64/ucrt64/include/qt6/QtGui"
 		},
 		{
 			"isSystem" : true,
@@ -153,24 +153,32 @@
 	[
 		{
 			"backtrace" : 15,
-			"id" : "Qt6::Platform::@6890427a1f51a3e7e1df"
+			"id" : "Qt6::Core::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 15,
-			"fragment" : "mpr"
+			"fragment" : "d3d11"
 		},
 		{
 			"backtrace" : 15,
-			"fragment" : "userenv"
+			"fragment" : "dxgi"
 		},
 		{
 			"backtrace" : 15,
-			"id" : "WrapAtomic::WrapAtomic::@6890427a1f51a3e7e1df"
+			"fragment" : "dxguid"
+		},
+		{
+			"backtrace" : 15,
+			"fragment" : "d3d12"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "WrapVulkanHeaders::WrapVulkanHeaders::@6890427a1f51a3e7e1df"
 		}
 	],
 	"local" : true,
-	"name" : "Qt6::Core",
-	"nameOnDisk" : "Qt6Core.dll",
+	"name" : "Qt6::Gui",
+	"nameOnDisk" : "Qt6Gui.dll",
 	"paths" : 
 	{
 		"build" : ".",

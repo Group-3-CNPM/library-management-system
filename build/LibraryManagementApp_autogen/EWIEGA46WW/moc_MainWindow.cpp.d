@@ -386,6 +386,7 @@ C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/build/LibraryManagementAp
   C:/msys64/ucrt64/include/qt6/QtGui/qvalidator.h \
   C:/msys64/ucrt64/include/qt6/QtGui/qwindowdefs.h \
   C:/msys64/ucrt64/include/qt6/QtGui/qwindowdefs_win.h \
+  C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
   C:/msys64/ucrt64/include/qt6/QtWidgets/QLabel \
   C:/msys64/ucrt64/include/qt6/QtWidgets/QLineEdit \
   C:/msys64/ucrt64/include/qt6/QtWidgets/QMainWindow \
@@ -399,6 +400,7 @@ C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/build/LibraryManagementAp
   C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractscrollarea.h \
   C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractslider.h \
   C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractspinbox.h \
+  C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h \
   C:/msys64/ucrt64/include/qt6/QtWidgets/qframe.h \
   C:/msys64/ucrt64/include/qt6/QtWidgets/qlabel.h \
   C:/msys64/ucrt64/include/qt6/QtWidgets/qlineedit.h \

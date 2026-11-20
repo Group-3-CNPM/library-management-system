@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/msys64/ucrt64/share/qt6/plugins/imageformats/qico.dll"
+			"path" : "C:/msys64/ucrt64/share/qt6/plugins/platforms/qwindows.dll"
 		}
 	],
 	"backtrace" : 19,
@@ -21,12 +21,12 @@
 		],
 		"files" : 
 		[
-			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QICOPluginTargets.cmake",
-			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QICOPluginConfig.cmake",
+			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginTargets.cmake",
+			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6QWindowsIntegrationPluginConfig.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicPluginHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiPlugins.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
@@ -145,11 +145,11 @@
 		"major" : 2,
 		"minor" : 12
 	},
-	"id" : "Qt6::QICOPlugin::@6890427a1f51a3e7e1df",
+	"id" : "Qt6::QWindowsIntegrationPlugin::@6890427a1f51a3e7e1df",
 	"imported" : true,
 	"local" : true,
-	"name" : "Qt6::QICOPlugin",
-	"nameOnDisk" : "qico.dll",
+	"name" : "Qt6::QWindowsIntegrationPlugin",
+	"nameOnDisk" : "qwindows.dll",
 	"paths" : 
 	{
 		"build" : ".",

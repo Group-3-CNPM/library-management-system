@@ -449,4 +449,6 @@ CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilatio
  C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractslider.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qstyle.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtabbar.h \
- C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h
+ C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
+ C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h

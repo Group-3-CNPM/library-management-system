@@ -8,6 +8,7 @@
 #include <QLabel>
 #include <QTabWidget>
 #include <QTableWidget>
+#include <QComboBox>
 #include "LibraryModels.h"
 
 class MainWindow : public QMainWindow {
@@ -31,6 +32,7 @@ private slots:
     void handleForgotPassword();
     void handleSignUp();
     void handleLogout();
+
     void onReturnAndFineClicked();
     void onMarkFinePaidClicked();
     void onCancelReservationClicked();
@@ -38,6 +40,12 @@ private slots:
     void onSearchTextChanged(const QString& text);
     void onBorrowBookClicked();
     void onReserveBookClicked();
+
+    void onReportTypeChanged(int index);
+    void onExportReportClicked();
+    void onAddUserClicked();
+    void onToggleUserRoleClicked();
+    void onRemoveUserClicked();
 
 private:
     QStackedWidget* m_stackedWidget;
@@ -58,6 +66,14 @@ private:
     QPushButton* m_returnFineBtn;
     QPushButton* m_markPaidBtn;
     QPushButton* m_cancelReserveBtn;
+    QComboBox* m_reportTypeCombo;
+    QLineEdit* m_reportFilterEdit;
+    QTableWidget* m_reportTable;
+    QPushButton* m_exportReportBtn;
+    QWidget* m_adminUsersGroup;
+    QPushButton* m_addUserBtn;
+    QPushButton* m_toggleRoleBtn;
+    QPushButton* m_removeUserBtn;
 
     // Tab 2: Circulation & Returns (Librarian, Admin)
     QTableWidget* m_borrowTable;

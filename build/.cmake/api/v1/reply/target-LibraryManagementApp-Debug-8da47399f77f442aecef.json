@@ -39,7 +39,7 @@
 			"C:/msys64/ucrt64/lib/cmake/Qt6/Qt6Config.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
-			"C:/Program Files/CMake/share/cmake-4.5/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/msys64/ucrt64/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
 			"C:/msys64/ucrt64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
@@ -369,11 +369,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
+			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "LibraryManagementApp::@6890427a1f51a3e7e1df",
@@ -459,11 +459,11 @@
 			"id" : "Qt6::uic::@6890427a1f51a3e7e1df"
 		},
 		{
-			"backtrace" : 0,
-			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
+			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "LibraryManagementApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "LibraryManagementApp_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"paths" : 
