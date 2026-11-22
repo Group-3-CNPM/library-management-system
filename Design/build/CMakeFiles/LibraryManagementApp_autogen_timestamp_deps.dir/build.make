@@ -55,10 +55,10 @@ RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design"
+CMAKE_SOURCE_DIR = C:\LibraryManagementApp\Code\Design
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build"
+CMAKE_BINARY_DIR = C:\LibraryManagementApp\Code\Design\build
 
 # Utility rule file for LibraryManagementApp_autogen_timestamp_deps.
 
@@ -83,6 +83,6 @@ CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/clean:
 .PHONY : CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/clean
 
 CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build" "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles\LibraryManagementApp_autogen_timestamp_deps.dir\DependInfo.cmake" "--color=$(COLOR)" LibraryManagementApp_autogen_timestamp_deps
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\LibraryManagementApp\Code\Design C:\LibraryManagementApp\Code\Design C:\LibraryManagementApp\Code\Design\build C:\LibraryManagementApp\Code\Design\build C:\LibraryManagementApp\Code\Design\build\CMakeFiles\LibraryManagementApp_autogen_timestamp_deps.dir\DependInfo.cmake "--color=$(COLOR)" LibraryManagementApp_autogen_timestamp_deps
 .PHONY : CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/depend
 

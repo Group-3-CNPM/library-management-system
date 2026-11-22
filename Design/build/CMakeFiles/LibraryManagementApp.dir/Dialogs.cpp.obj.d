@@ -1,6 +1,6 @@
 CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\Dialogs.cpp \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\Dialogs.h \
+ C:\LibraryManagementApp\Code\Design\Dialogs.cpp \
+ C:\LibraryManagementApp\Code\Design\Dialogs.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QDialog \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qdialog.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -420,7 +420,7 @@ CMakeFiles/LibraryManagementApp.dir/Dialogs.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QPushButton \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qpushbutton.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractbutton.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\LibraryModels.h \
+ C:\LibraryManagementApp\Code\Design\LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \
  C:/msys64/ucrt64/include/qt6/QtCore/QVector \

@@ -1,5 +1,5 @@
 CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\main.cpp \
+ C:\LibraryManagementApp\Code\Design\main.cpp \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QApplication \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qapplication.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -391,7 +391,7 @@ CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtCore/qvarlengtharray.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qalloc.h \
  C:/msys64/ucrt64/include/qt6/QtGui/qguiapplication_platform.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\MainWindow.h \
+ C:\LibraryManagementApp\Code\Design\MainWindow.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QMainWindow \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qmainwindow.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qwidget.h \
@@ -445,14 +445,14 @@ CMakeFiles/LibraryManagementApp.dir/main.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\LibraryModels.h \
+ C:\LibraryManagementApp\Code\Design\LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \
  C:/msys64/ucrt64/include/qt6/QtCore/qdatetime.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qcalendar.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QVector \
  C:/msys64/ucrt64/include/qt6/QtCore/qvector.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\DatabaseManager.h \
+ C:\LibraryManagementApp\Code\Design\DatabaseManager.h \
  C:/msys64/ucrt64/include/qt6/QtSql/QSqlDatabase \
  C:/msys64/ucrt64/include/qt6/QtSql/qsqldatabase.h \
  C:/msys64/ucrt64/include/qt6/QtSql/qtsqlglobal.h \

@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/LE THANH TAI/Downloads/LibraryManagementApp/Design/build/cmake_install.cmake"
+		"C:/LibraryManagementApp/Code/Design/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

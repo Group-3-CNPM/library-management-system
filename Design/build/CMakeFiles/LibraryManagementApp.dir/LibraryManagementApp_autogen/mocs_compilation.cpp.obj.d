@@ -1,7 +1,7 @@
 CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilation.cpp.obj: \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\build\LibraryManagementApp_autogen\mocs_compilation.cpp \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\build\LibraryManagementApp_autogen\EWIEGA46WW/moc_Dialogs.cpp \
- C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/Dialogs.h \
+ C:\LibraryManagementApp\Code\Design\build\LibraryManagementApp_autogen\mocs_compilation.cpp \
+ C:\LibraryManagementApp\Code\Design\build\LibraryManagementApp_autogen\EWIEGA46WW/moc_Dialogs.cpp \
+ C:/LibraryManagementApp/Code/Design/Dialogs.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QDialog \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qdialog.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -421,7 +421,7 @@ CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilatio
  C:/msys64/ucrt64/include/qt6/QtWidgets/QPushButton \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qpushbutton.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qabstractbutton.h \
- C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/LibraryModels.h \
+ C:/LibraryManagementApp/Code/Design/LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \
  C:/msys64/ucrt64/include/qt6/QtCore/QVector \
@@ -429,8 +429,8 @@ CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilatio
  C:/msys64/ucrt64/include/qt6/QtCore/qtmochelpers.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qtmocconstants.h \
  C:/msys64/ucrt64/include/qt6/QtCore/q20algorithm.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\build\LibraryManagementApp_autogen\EWIEGA46WW/moc_MainWindow.cpp \
- C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/MainWindow.h \
+ C:\LibraryManagementApp\Code\Design\build\LibraryManagementApp_autogen\EWIEGA46WW/moc_MainWindow.cpp \
+ C:/LibraryManagementApp/Code/Design/MainWindow.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QMainWindow \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qmainwindow.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtabwidget.h \
@@ -452,7 +452,7 @@ CMakeFiles/LibraryManagementApp.dir/LibraryManagementApp_autogen/mocs_compilatio
  C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h \
- C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/DatabaseManager.h \
+ C:/LibraryManagementApp/Code/Design/DatabaseManager.h \
  C:/msys64/ucrt64/include/qt6/QtSql/QSqlDatabase \
  C:/msys64/ucrt64/include/qt6/QtSql/qsqldatabase.h \
  C:/msys64/ucrt64/include/qt6/QtSql/qtsqlglobal.h \

@@ -1,7 +1,7 @@
-C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/build/LibraryManagementApp_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/MainWindow.h \
-  C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/build/LibraryManagementApp_autogen/moc_predefs.h \
-  C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/DatabaseManager.h \
-  C:/Users/LE\ THANH\ TAI/Downloads/LibraryManagementApp/Design/LibraryModels.h \
+C:/LibraryManagementApp/Code/Design/build/LibraryManagementApp_autogen/EWIEGA46WW/moc_MainWindow.cpp: C:/LibraryManagementApp/Code/Design/MainWindow.h \
+  C:/LibraryManagementApp/Code/Design/build/LibraryManagementApp_autogen/moc_predefs.h \
+  C:/LibraryManagementApp/Code/Design/DatabaseManager.h \
+  C:/LibraryManagementApp/Code/Design/LibraryModels.h \
   C:/msys64/ucrt64/include/_mingw.h \
   C:/msys64/ucrt64/include/_mingw_locale.h \
   C:/msys64/ucrt64/include/_mingw_mac.h \

@@ -56,10 +56,10 @@ RM = C:\msys64\ucrt64\bin\cmake.exe -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design"
+CMAKE_SOURCE_DIR = C:\LibraryManagementApp\Code\Design
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build"
+CMAKE_BINARY_DIR = C:\LibraryManagementApp\Code\Design\build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -86,18 +86,18 @@ clean: CMakeFiles/LibraryManagementApp_autogen.dir/clean
 # Target rules for target CMakeFiles/LibraryManagementApp.dir
 
 # All Build rule for target.
-CMakeFiles/LibraryManagementApp.dir/all: CMakeFiles/LibraryManagementApp_autogen.dir/all
 CMakeFiles/LibraryManagementApp.dir/all: CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all
+CMakeFiles/LibraryManagementApp.dir/all: CMakeFiles/LibraryManagementApp_autogen.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7 "Built target LibraryManagementApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\LibraryManagementApp\Code\Design\build\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target LibraryManagementApp"
 .PHONY : CMakeFiles/LibraryManagementApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LibraryManagementApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\LibraryManagementApp\Code\Design\build\CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/LibraryManagementApp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\LibraryManagementApp\Code\Design\build\CMakeFiles 0
 .PHONY : CMakeFiles/LibraryManagementApp.dir/rule
 
 # Convenience name for target.
@@ -107,7 +107,7 @@ LibraryManagementApp: CMakeFiles/LibraryManagementApp.dir/rule
 # codegen rule for target.
 CMakeFiles/LibraryManagementApp.dir/codegen: CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/codegen
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp.dir\build.make CMakeFiles/LibraryManagementApp.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" --progress-num=1,2,3,4,5,6,7 "Finished codegen for target LibraryManagementApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\LibraryManagementApp\Code\Design\build\CMakeFiles --progress-num=1,2,3,4,5,6,7 "Finished codegen for target LibraryManagementApp"
 .PHONY : CMakeFiles/LibraryManagementApp.dir/codegen
 
 # clean rule for target.
@@ -122,14 +122,14 @@ CMakeFiles/LibraryManagementApp.dir/clean:
 CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp_autogen_timestamp_deps.dir\build.make CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp_autogen_timestamp_deps.dir\build.make CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" --progress-num= "Built target LibraryManagementApp_autogen_timestamp_deps"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\LibraryManagementApp\Code\Design\build\CMakeFiles --progress-num= "Built target LibraryManagementApp_autogen_timestamp_deps"
 .PHONY : CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\LibraryManagementApp\Code\Design\build\CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\LibraryManagementApp\Code\Design\build\CMakeFiles 0
 .PHONY : CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/rule
 
 # Convenience name for target.
@@ -139,7 +139,7 @@ LibraryManagementApp_autogen_timestamp_deps: CMakeFiles/LibraryManagementApp_aut
 # codegen rule for target.
 CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp_autogen_timestamp_deps.dir\build.make CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" --progress-num= "Finished codegen for target LibraryManagementApp_autogen_timestamp_deps"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\LibraryManagementApp\Code\Design\build\CMakeFiles --progress-num= "Finished codegen for target LibraryManagementApp_autogen_timestamp_deps"
 .PHONY : CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/codegen
 
 # clean rule for target.
@@ -154,14 +154,14 @@ CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/clean:
 CMakeFiles/LibraryManagementApp_autogen.dir/all: CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp_autogen.dir\build.make CMakeFiles/LibraryManagementApp_autogen.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp_autogen.dir\build.make CMakeFiles/LibraryManagementApp_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" --progress-num=8 "Built target LibraryManagementApp_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\LibraryManagementApp\Code\Design\build\CMakeFiles --progress-num=8 "Built target LibraryManagementApp_autogen"
 .PHONY : CMakeFiles/LibraryManagementApp_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/LibraryManagementApp_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" 1
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\LibraryManagementApp\Code\Design\build\CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/LibraryManagementApp_autogen.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\LibraryManagementApp\Code\Design\build\CMakeFiles 0
 .PHONY : CMakeFiles/LibraryManagementApp_autogen.dir/rule
 
 # Convenience name for target.
@@ -171,7 +171,7 @@ LibraryManagementApp_autogen: CMakeFiles/LibraryManagementApp_autogen.dir/rule
 # codegen rule for target.
 CMakeFiles/LibraryManagementApp_autogen.dir/codegen: CMakeFiles/LibraryManagementApp_autogen_timestamp_deps.dir/codegen
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\LibraryManagementApp_autogen.dir\build.make CMakeFiles/LibraryManagementApp_autogen.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\LE THANH TAI\Downloads\LibraryManagementApp\Design\build\CMakeFiles" --progress-num=8 "Finished codegen for target LibraryManagementApp_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\LibraryManagementApp\Code\Design\build\CMakeFiles --progress-num=8 "Finished codegen for target LibraryManagementApp_autogen"
 .PHONY : CMakeFiles/LibraryManagementApp_autogen.dir/codegen
 
 # clean rule for target.

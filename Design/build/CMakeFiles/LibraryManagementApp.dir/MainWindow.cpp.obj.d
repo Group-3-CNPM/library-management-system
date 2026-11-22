@@ -1,6 +1,6 @@
 CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\MainWindow.cpp \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\MainWindow.h \
+ C:\LibraryManagementApp\Code\Design\MainWindow.cpp \
+ C:\LibraryManagementApp\Code\Design\MainWindow.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QMainWindow \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qmainwindow.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qtwidgetsglobal.h \
@@ -432,21 +432,21 @@ CMakeFiles/LibraryManagementApp.dir/MainWindow.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qrubberband.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QComboBox \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qcombobox.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\LibraryModels.h \
+ C:\LibraryManagementApp\Code\Design\LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \
  C:/msys64/ucrt64/include/qt6/QtCore/qdatetime.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qcalendar.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QVector \
  C:/msys64/ucrt64/include/qt6/QtCore/qvector.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\DatabaseManager.h \
+ C:\LibraryManagementApp\Code\Design\DatabaseManager.h \
  C:/msys64/ucrt64/include/qt6/QtSql/QSqlDatabase \
  C:/msys64/ucrt64/include/qt6/QtSql/qsqldatabase.h \
  C:/msys64/ucrt64/include/qt6/QtSql/qtsqlglobal.h \
  C:/msys64/ucrt64/include/qt6/QtSql/qtsql-config.h \
  C:/msys64/ucrt64/include/qt6/QtSql/qtsqlexports.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qmetaobject.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\Dialogs.h \
+ C:\LibraryManagementApp\Code\Design\Dialogs.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QDialog \
  C:/msys64/ucrt64/include/qt6/QtWidgets/qdialog.h \
  C:/msys64/ucrt64/include/qt6/QtWidgets/QDateEdit \

@@ -1,6 +1,6 @@
 CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj: \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\DatabaseManager.cpp \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\DatabaseManager.h \
+ C:\LibraryManagementApp\Code\Design\DatabaseManager.cpp \
+ C:\LibraryManagementApp\Code\Design\DatabaseManager.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QString \
  C:/msys64/ucrt64/include/qt6/QtCore/qstring.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qchar.h \
@@ -358,7 +358,7 @@ CMakeFiles/LibraryManagementApp.dir/DatabaseManager.cpp.obj: \
  C:/msys64/ucrt64/include/qt6/QtCore/qbindingstorage.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QVector \
  C:/msys64/ucrt64/include/qt6/QtCore/qvector.h \
- C:\Users\LE\ THANH\ TAI\Downloads\LibraryManagementApp\Design\LibraryModels.h \
+ C:\LibraryManagementApp\Code\Design\LibraryModels.h \
  C:/msys64/ucrt64/include/qt6/QtCore/QDate \
  C:/msys64/ucrt64/include/qt6/QtCore/qdatetime.h \
  C:/msys64/ucrt64/include/qt6/QtCore/qcalendar.h \
