@@ -1,0 +1,82 @@
+{
+  "tests": 8,
+  "name": "AllTests",
+  "testsuites": [
+    {
+      "name": "UserTest",
+      "tests": 2,
+      "testsuite": [
+        {
+          "name": "AuthenticationAndRolePermissions",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 323
+        },
+        {
+          "name": "RegistrationValidationRejectsEmptyOrDuplicateUsername",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 343
+        }
+      ]
+    },
+    {
+      "name": "BookTest",
+      "tests": 2,
+      "testsuite": [
+        {
+          "name": "BorrowAndReturnUpdatesAvailableCopies",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 353
+        },
+        {
+          "name": "OutOfStockBookCannotBeBorrowedAndSearchMatchesCaseInsensitive",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 364
+        }
+      ]
+    },
+    {
+      "name": "FineTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "OverdueDaysAndFineCalculationBoundaries",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 378
+        }
+      ]
+    },
+    {
+      "name": "BorrowTransactionTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "ReturnOverdueBookCalculatesFineAndMarksFinePaid",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 393
+        }
+      ]
+    },
+    {
+      "name": "ReservationTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "QueueEligibilityAndCancellation",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 413
+        }
+      ]
+    },
+    {
+      "name": "NotificationTest",
+      "tests": 1,
+      "testsuite": [
+        {
+          "name": "BuildsExpectedPickupAndOverdueMessages",
+          "file": "C:\\LibraryManagementApp\\Code\\tests\\test_core_methods.cpp",
+          "line": 432
+        }
+      ]
+    }
+  ]
+}
